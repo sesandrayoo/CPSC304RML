@@ -1,0 +1,81 @@
+const express = require('express');
+const mysql = require('mysql');
+
+// Create connection
+const db = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : '',
+    database : 'RateMyLandlord'
+});
+
+// Connect to the MySQL Database
+db.connect((err) => {
+    if(err){
+        throw err;
+    }
+    console.log('MySql Connected...');
+});
+ 
+const app = express(); 
+app.set('views', `${__dirname}/views`)
+app.set('view engine', 'ejs')
+
+// The default
+app.get('/', (req, res) => {
+    const sampleResponse = {
+        title: 'RateMyLandlord Home'
+    }
+    // Renders the index.ejs page
+    res.render('index', sampleResponse);
+    // you should see this console log in your terminal/command line when you go to localhost:3000/
+    console.log('on homepage!');
+})
+
+// Select ALL Landlord profiles
+app.get('/getAllProfiles', (req, res) => {
+    let sql = 'SELECT * FROM LandlordProfiles';
+    let query = db.query(sql, (err, results) => {
+        if(err) throw err;
+        console.log(results);
+        console.log('see below!')
+        res.send('Profiles fetched...');
+    });
+});
+
+// Select single LandlordProfile
+app.get('/getLandlordProfile/:id', (req, res) => {
+    let sql = `SELECT * FROM LandlordProfiles WHERE id = ${req.params.id}`;
+    let query = db.query(sql, (err, result) => {
+        if(err) throw err;
+        console.log(result);
+        
+        res.send('LandlordProfile fetched...');
+    });
+});
+
+// EXAMPLE Update post 
+app.get('/updatepost/:id', (req, res) => {
+    let newTitle = 'Updated Title';
+    let sql = `UPDATE posts SET title = '${newTitle}' WHERE id = ${req.params.id}`;
+    let query = db.query(sql, (err, result) => {
+        if(err) throw err;
+        console.log(result);
+        res.send('Post updated...');
+    });
+});
+
+// EXAMPLE Delete post
+app.get('/deletepost/:id', (req, res) => {
+    let newTitle = 'Updated Title';
+    let sql = `DELETE FROM posts WHERE id = ${req.params.id}`;
+    let query = db.query(sql, (err, result) => {
+        if(err) throw err;
+        console.log(result);
+        res.send('Post deleted...');
+    });
+});
+
+app.listen('3000', () => {
+    console.log('Server started on port 3000');
+});
