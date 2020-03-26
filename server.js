@@ -20,6 +20,28 @@ app.get('/', (req, res) => {
     console.log('on homepage!');
 })
 
+// The login page
+app.get('/login', (req, res) => {
+    const sampleResponse = {
+        title: 'RateMyLandlord Login'
+    }
+    // Renders the index.ejs page
+    res.render('./pages/login', sampleResponse);
+    // you should see this console log in your terminal/command line when you go to localhost:3000/
+    console.log('on login page!');
+})
+
+// The signup page
+app.get('/signup', (req, res) => {
+    const sampleResponse = {
+        title: 'RateMyLandlord Signup'
+    }
+    // Renders the index.ejs page
+    res.render('./pages/signup', sampleResponse);
+    // you should see this console log in your terminal/command line when you go to localhost:3000/
+    console.log('on signup page!');
+})
+
 // Select ALL Landlord profiles
 app.get('/getAllProfiles', (req, res) => {
     let sql = 'SELECT * FROM LandlordProfiles';

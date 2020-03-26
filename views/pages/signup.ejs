@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%- include ('../partials/styling.ejs') %>
+  <title><%= title %></title>
+</head>
+
+<body>
+  <%- include ('../partials/top-nav.ejs') %>
+
+  <div class="apartment-bg-image">
+
+    <div class="outer">
+      <div class="account-form">
+        <h1>Create an account</h1>
+        <div class='container'>
+            <form action="#" method="post" target="_blank">
+              <div class="label-input">
+                <label for="email">Email</label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+              </div>
+              <div class="label-input">
+                <label for="psw">Password</label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+              </div>
+              <div class="label-input">
+                <label for="psw-repeat">Repeat Password</label>
+                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+              </div>
+              <div class="clearfix">
+                <button type="button" class="button">Cancel</button>
+                <button type="submit" class="button">Sign Up</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <%- include ('../partials/footer.ejs') %>
+</body>

@@ -11,3 +11,19 @@ h1{
   color: #007EA7;
 } 
 
+.outer {
+  margin: 0;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+
+
+  button {
+      width: 140px;
+      height: 40px;
+      background: rgb(255, 255, 255);
+      font-size: 24px; 
+      margin: 18px;
+  }
+
+}

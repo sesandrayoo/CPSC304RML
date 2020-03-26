@@ -10,4 +10,30 @@ h1 {
   padding: 20px;
   color: #007EA7;
 }
+
+.outer {
+  margin: 0;
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.outer button {
+  width: 140px;
+  height: 40px;
+  background: white;
+  font-size: 24px;
+  margin: 18px;
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
+}
+
+.outer button .button:hover {
+  background-color: #007EA7;
+  color: white;
+}
 /*# sourceMappingURL=style.css.map */
