@@ -41,6 +41,7 @@ header input.search-bar {
   background-color: #FFFFFF !important;
   width: 200px;
   height: 34px;
+  text-align: center;
   line-height: 34px;
   margin-top: 10px;
   border-radius: 25px !important;
@@ -113,6 +114,101 @@ footer {
   opacity: .90;
   color: #FFFFFF;
 }
+#landing-options {
+  padding-top: 16vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#landing-options h1 {
+  color: #000000;
+}
+
+#landing-options .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 50px;
+}
+
+#landing-options .options li {
+  list-style-type: none;
+}
+
+#landing-options .options a {
+  text-decoration: none;
+  color: #202020;
+  text-align: center;
+}
+
+#landing-options .options .container {
+  height: 150px;
+  width: 175px;
+  background: #00a8e8;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#landing-options .options .container .p1 {
+  font-size: 20px;
+  color: #eeeeee;
+}
+
+#landing-options .options .container .p2 {
+  margin-top: -15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #eeeeee;
+}
+
+.outer {
+  margin: 0;
+  padding: 30px;
+}
+
+.outer button {
+  width: 140px;
+  height: 40px;
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+  background: #00a8e8;
+  color: #eeeeee;
+  font-size: 24px;
+  margin: 18px;
+  margin-bottom: 24px;
+}
+
 .account-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -125,6 +221,11 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 20px;
+}
+
+.account-form h1 {
+  color: #000000;
+  margin-bottom: 24px;
 }
 
 .account-form .container form {
@@ -141,7 +242,6 @@ footer {
   font-size: 22px;
   background: #3A3A3A;
   opacity: .8;
-  border-radius: 8px;
   width: 450px;
   margin: auto;
 }

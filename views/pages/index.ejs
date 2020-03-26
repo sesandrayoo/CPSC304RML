@@ -12,9 +12,30 @@
   <%- include ('../partials/top-nav.ejs') %>
 
   <div class="apartment-bg-image">
-    <h1>
-      Test to include header and footer
-    </h1>
+    <div class="container" id="landing-options">
+      <h1>Find what you're looking for.</h1>
+      <div class="options">
+          <div class="container" id="find-landlord">
+              <li><a href="/searchlandlord">
+                  <p class="p1">find a</p>
+                  <p class="p2">Landlord</p></a>
+              </li>
+          </div>
+          <div class="container" id="find-property">
+              <li><a href="/searchproperty">
+                  <p class="p1">find a</p>
+                  <p class="p2">Property</p></a>
+              </li>
+          </div>
+          <div class="container" id="see-listings">
+              <li><a href="/searchlisting">
+                  <p class="p1">see current</p>
+                  <p class="p2">Listings</p></a>
+              </li>
+          </div>
+      </div>
+  </div>
+
   </div>
 
 
