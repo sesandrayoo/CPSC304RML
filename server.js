@@ -1,9 +1,13 @@
 const express = require('express');
 var db = require('./db');
+
  
 const app = express(); 
 app.set('views', `${__dirname}/views`)
 app.set('view engine', 'ejs')
+
+// Sets the correct directory for the project use (instead of your computer)
+app.use(express.static(__dirname + '/views'));
 
 // The default
 app.get('/', (req, res) => {
@@ -11,7 +15,7 @@ app.get('/', (req, res) => {
         title: 'RateMyLandlord Home'
     }
     // Renders the index.ejs page
-    res.render('index', sampleResponse);
+    res.render('./pages/index', sampleResponse);
     // you should see this console log in your terminal/command line when you go to localhost:3000/
     console.log('on homepage!');
 })
