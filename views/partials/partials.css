@@ -191,12 +191,21 @@ footer {
   color: #eeeeee;
 }
 
-.outer {
-  margin: 0;
-  padding: 30px;
+.account-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px;
 }
 
-.outer button {
+.account-form button {
   width: 140px;
   height: 40px;
   border: none;
@@ -209,23 +218,25 @@ footer {
   margin-bottom: 24px;
 }
 
-.account-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 20px;
-}
-
 .account-form h1 {
   color: #000000;
   margin-bottom: 24px;
+}
+
+.account-form li {
+  list-style-type: none;
+  padding-top: 20px;
+}
+
+.account-form a {
+  text-decoration: none;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 19px;
+}
+
+.account-form #form-link {
+  color: #00a8e8;
 }
 
 .account-form .container form {

@@ -158,11 +158,13 @@ footer {
 
 
 // Login/signup forms
-.outer {
-  margin: 0;
-  padding: 30px;
+.account-form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
 
-  button {
+    button {
       width: 140px;
       height: 40px;
       border: none;
@@ -173,19 +175,27 @@ footer {
       font-size: 24px; 
       margin: 18px;
       margin-bottom: 24px;
-  }
-
-}
-
-.account-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-
+    }
+    
     h1 {
       color: #000000;
       margin-bottom: 24px;
+    }
+
+    li {
+      list-style-type: none;
+      padding-top: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color:#eeeeee;
+        text-align: center;
+        font-size: 19px;
+    }
+
+    #form-link {
+      color: #00a8e8;
     }
 
     .container form {
