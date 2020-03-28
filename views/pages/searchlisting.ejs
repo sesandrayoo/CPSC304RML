@@ -12,8 +12,33 @@
   <%- include ('../partials/top-nav.ejs') %>
 
   <div class="apartment-bg-image">
-   
-    
+
+    <div id="search-listings-body">
+      <h1>Search rental listings in your area</h1>
+      <div class="whole-container">
+
+        <div class="right-container">
+          <p>Your City</p>
+          <p>Number of Bedrooms</p>
+          <p>Number of Bathrooms</p>
+          <p>Minimum Price</p>
+          <p>Maximum Price</p>
+        </div>
+
+        <div class="left-container">
+          <form action="#" method="post" target="_blank">
+            <input type="text" placeholder="city name" id="city" required>
+            <input type="number" placeholder="bedrooms" id="bedrooms" required>
+            <input type="number" placeholder="bathrooms" id="bathrooms" required>
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="10000" value="50" class="slider" id="min-price">
+            <input type="range" min="1" max="10000" value="50" class="slider" id="max-price">
+            <button type="submit" class="listing-sub-btn">Search</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 

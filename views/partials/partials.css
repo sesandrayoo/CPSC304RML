@@ -273,4 +273,99 @@ footer {
 .account-form .label-input label {
   color: #7e7e7e;
 }
+
+#search-listings-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px;
+}
+
+#search-listings-body h1 {
+  color: #000000;
+}
+
+#search-listings-body .whole-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #e4e4e4;
+  width: 70vh;
+  margin-top: 25px;
+}
+
+#search-listings-body .whole-container .right-container {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #a3a3a3;
+  padding-left: 20px;
+}
+
+#search-listings-body .whole-container .right-container p {
+  font-size: 20px;
+}
+
+#search-listings-body .whole-container .left-container {
+  height: 100%;
+}
+
+#search-listings-body .whole-container .left-container form {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #722b2b;
+  padding-left: 20px;
+}
+
+#search-listings-body .whole-container .left-container form input {
+  text-align: center;
+  border: 1px, solid, black;
+}
+
+#search-listings-body .whole-container .left-container form .slider {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 200px;
+  height: 24px;
+  border: none;
+}
+
+#search-listings-body .whole-container .left-container form #my-list {
+  background-color: #e67776;
+}
 /*# sourceMappingURL=partials.css.map */
