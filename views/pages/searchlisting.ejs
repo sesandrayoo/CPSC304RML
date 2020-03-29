@@ -25,18 +25,13 @@
         </div>
 
         <div class="left-container">
-          <form action="#" method="post" target="_blank">
+          <form action="/listings" method="get" target="_blank">
             <input type="text" placeholder="city name" id="city" required>
             <input type="number" placeholder="bedrooms" id="bedrooms" required>
             <input type="number" placeholder="bathrooms" id="bathrooms" required>
             <input type="range" min="0" max="10000" value="500" class="slider" step="50" id="min-price">
             <input type="range" min="1" max="10000" value="500" class="slider" step="50" id="max-price">
-            <button type="submit" id="search-listing-btn" class="listing-sub-btn">Search</button>
-            <script>
-                document.getElementById("search-listing-btn").onclick = function () {
-                  location.href='localhost:3000/listings';
-                };
-            </script>
+            <button type="submit" id="search-listing-btn" class="listing-sub-btn" value="submit">Search</button>
           </form>
         </div>
 
