@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%- include ('../partials/styling.ejs') %>
+  <title><%= title %></title>
+</head>
+
+<body>
+  <%- include ('../partials/top-nav.ejs') %>
+
+  <div class="apartment-bg-image">
+    
+    <section id="matching-listings" class="container">
+      <h1>Rental Listings</h1>
+      <div class="listing">
+        <img src="" alt="">
+        <h3>3 bedroom basement apartment for rent</h3>
+        <p>Description of apartment</p>
+        <div class="specs">
+          <p>Bedrooms: <span></span></p>
+          <p>Bathrooms: <span></span></p>
+        </div>
+        <ul>
+          <li>Price: $1500</li>
+          <li><a href="#" class="btn btn-reverse">Contact Landlord</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+  </div>
+
+
+  <%- include ('../partials/footer.ejs') %>
+</body>

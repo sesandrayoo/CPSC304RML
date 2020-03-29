@@ -47,6 +47,16 @@ app.get('/searchlisting', (req, res) => {
     console.log('on search listing page!');
 })
 
+//listings page
+app.get('/listings', (req, res) => {
+    const sampleResponse = {
+        title: 'RateMyLandlord listings'
+    }
+    res.render('./pages/listings', sampleResponse);
+    console.log('on listings page!');
+})
+
+
 // Select ALL Landlord profiles
 app.get('/getAllProfiles', (req, res) => {
     let sql = 'SELECT * FROM LandlordProfiles';
@@ -67,6 +77,10 @@ app.get('/getLandlordProfile/:id', (req, res) => {
         
         res.send('LandlordProfile fetched...');
     });
+});
+
+app.post('/searchlisting/submit', (req, res, next) => {
+    res.redirect('.pages/listings');
 });
 
 // EXAMPLE Update post 
