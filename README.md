@@ -41,6 +41,10 @@ Using:
     - Run `npm run start`
         - this will start the application
     - If it works, then you should see the application when you go to `localhost:3000` in your browser of choice
+    
+9. SASS
+    - run `npm install -g node-sass`
+    - run `npm install -g concurrently --save-dev`
 
 
 # Architecture
