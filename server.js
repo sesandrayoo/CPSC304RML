@@ -8,9 +8,10 @@ app.set('view engine', 'ejs')
 
 // Sets the correct directory for the project use (instead of your computer)
 app.use(express.static(__dirname + '/views'));
-
+app.use(express.static(__dirname + '/public'));
 // The default
 app.get('/', (req, res) => {
+    console.log(req);
     const sampleResponse = {
         title: 'RateMyLandlord Home'
     }
@@ -18,11 +19,21 @@ app.get('/', (req, res) => {
     res.render('./pages/index', sampleResponse);
     // you should see this console log in your terminal/command line when you go to localhost:3000/
     console.log('on homepage!');
+    
+})
+
+app.post('/testingRoute', (req, res) => {
+    console.log(req.body);
+    // Renders the index.ejs page
+    res.render('./pages/index');
+
+    
 })
 
 //login page
 app.get('/login', (req, res) => {
     const sampleResponse = {
+
         title: 'RateMyLandlord Login'
     }
     res.render('./pages/login', sampleResponse);
@@ -56,6 +67,34 @@ app.get('/listings', (req, res) => {
     console.log('on listings page!');
 })
 
+
+// search Page
+app.get('/search', (req, res) => {
+    const randomvariables = {
+        category: 'Landlord'
+    }
+    res.render('./pages/search', randomvariables);
+
+})
+
+
+// landlordProfile page 
+app.get('/landlordProfile', (req, res) => {
+    const sampleResponse = {
+        title: 'RateMyLandlord Login'
+    }
+    res.render('./pages/landlordProfilePage', sampleResponse);
+})
+
+
+
+
+
+
+
+
+
+/////// QUERIES /////////
 
 // Select ALL Landlord profiles
 app.get('/getAllProfiles', (req, res) => {
