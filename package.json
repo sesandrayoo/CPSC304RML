@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -e js,ejs server.js"
+    "start": "concurrently --kill-others \"npm run watch-css\" \"npm run watch\"",
+    "watch": "nodemon -e js,ejs server.js ",
+    "build-css": "node-sass views/ -o views/",
+    "watch-css": "nodemon -e scss -x npm run build-css"
   },
   "author": "",
   "license": "ISC",

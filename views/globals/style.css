@@ -2,12 +2,9 @@
   background: url(./apartments.png) no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
-  width: 100%;
-}
+  width: 100%; }
 
 h1 {
   margin: 0;
   padding: 20px;
-  color: #007EA7;
-}
-/*# sourceMappingURL=style.css.map */
+  color: #007EA7; }
