@@ -56,7 +56,6 @@ app.get('/listings', (req, res) => {
     console.log('on listings page!');
 })
 
-
 // Select ALL Landlord profiles
 app.get('/getAllProfiles', (req, res) => {
     let sql = 'SELECT * FROM LandlordProfiles';

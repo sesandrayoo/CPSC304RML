@@ -17,7 +17,7 @@ nav.navbar {
           justify-content: center;
   height: 15vh;
   padding: 0 12px;
-  background-color: #000000 !important;
+  background-color: #141414 !important;
 }
 
 header {
@@ -109,7 +109,7 @@ footer {
   align-items: center;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  background: #000000;
+  background: #141414;
   height: 15vh;
   opacity: .90;
   color: #FFFFFF;
