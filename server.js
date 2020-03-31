@@ -1,14 +1,18 @@
 const express = require('express');
 var db = require('./db');
+const bodyParser = require('body-parser');
+const {showAll, addUser} = require('./routes/sampleRoute');
 
- 
+
 const app = express(); 
 app.set('views', `${__dirname}/views`)
 app.set('view engine', 'ejs')
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Sets the correct directory for the project use (instead of your computer)
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/public'));
+
 // The default
 app.get('/', (req, res) => {
     console.log(req);
@@ -19,14 +23,6 @@ app.get('/', (req, res) => {
     res.render('./pages/index', sampleResponse);
     // you should see this console log in your terminal/command line when you go to localhost:3000/
     console.log('on homepage!');
-    
-})
-
-app.post('/testingRoute', (req, res) => {
-    console.log(req.body);
-    // Renders the index.ejs page
-    res.render('./pages/index');
-
     
 })
 
@@ -87,6 +83,10 @@ app.get('/landlordProfile', (req, res) => {
 })
 
 
+/// SAMPLE SECTION /////
+/* import the endpoints */
+app.get('/samplePage', showAll);
+app.post('/samplePage', addUser);
 
 
 

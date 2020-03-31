@@ -17,8 +17,8 @@
   <div id="landlord-profile-page">
 
     <div class="profile-details">
-
-      <form id="submitForm" action="#" method="POST" >
+      <!-- example of SENDING to the database -->
+      <form id="submitForm" action="/samplePage" method="POST">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname"><br>
         <label for="lname">Last name:</label><br>
@@ -28,7 +28,19 @@
 
     </div>
 
+    <br>
 
+
+    <% if(example){ %>
+
+
+    <!-- example of DISPLAYING what is on the database -->
+    <% for (var i = 0; i < example.length; i++) { %>
+    <div>First Name: <%= example[i].firstName %></div>
+    <div>Last Name: <%= example[i].lastName %></div>
+    <br>
+    <% } %>
+    <% } %>
 
 
   </div>
