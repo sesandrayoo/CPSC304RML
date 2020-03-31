@@ -1,16 +1,21 @@
 const express = require('express');
 var db = require('./db');
+const bodyParser = require('body-parser');
+const {showAll, addUser} = require('./routes/sampleRoute');
 
- 
+
 const app = express(); 
 app.set('views', `${__dirname}/views`)
 app.set('view engine', 'ejs')
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Sets the correct directory for the project use (instead of your computer)
 app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/public'));
 
 // The default
 app.get('/', (req, res) => {
+    console.log(req);
     const sampleResponse = {
         title: 'RateMyLandlord Home'
     }
@@ -18,11 +23,13 @@ app.get('/', (req, res) => {
     res.render('./pages/index', sampleResponse);
     // you should see this console log in your terminal/command line when you go to localhost:3000/
     console.log('on homepage!');
+    
 })
 
 //login page
 app.get('/login', (req, res) => {
     const sampleResponse = {
+
         title: 'RateMyLandlord Login'
     }
     res.render('./pages/login', sampleResponse);
@@ -55,6 +62,39 @@ app.get('/listings', (req, res) => {
     res.render('./pages/listings', sampleResponse);
     console.log('on listings page!');
 })
+
+
+// search Page
+app.get('/search', (req, res) => {
+    const randomvariables = {
+        category: 'Landlord'
+    }
+    res.render('./pages/search', randomvariables);
+
+})
+
+
+// landlordProfile page 
+app.get('/landlordProfile', (req, res) => {
+    const sampleResponse = {
+        title: 'RateMyLandlord Login'
+    }
+    res.render('./pages/landlordProfilePage', sampleResponse);
+})
+
+
+/// SAMPLE SECTION /////
+/* import the endpoints */
+app.get('/samplePage', showAll);
+app.post('/samplePage', addUser);
+
+
+
+
+
+
+
+/////// QUERIES /////////
 
 // Select ALL Landlord profiles
 app.get('/getAllProfiles', (req, res) => {

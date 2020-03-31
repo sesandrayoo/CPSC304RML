@@ -41,6 +41,32 @@ Using:
     - Run `npm run start`
         - this will start the application
     - If it works, then you should see the application when you go to `localhost:3000` in your browser of choice
+    
+9. SASS (NEW! MARCH 30)
+    - added script in package.json to convert our .scss to .css upon save. It will recompile anytime we change and save the .scss. This way, we should never be directly editing the .css files. 
+    - run `npm install -g node-sass`
+    - run `npm install -g concurrently --save-dev`
+
+9. DATABASE INTERACTIONS SAMPLE (NEW! MARCH 30)
+    - I added some files to show the base functionality of database interactions & how to use them in our .ejs files. Since it's not part of the project, you'll have to manually type `localhost:3000/samplePage` to test it out. For now, we can keep it in there so that you can see how it works/use the structure in future files.
+        - `samplePage.ejs` The front end view. Has a form at the top, and will display the results from your table at the bottom. 
+        - `routes\sampleRoute.js`. This is where we will define our page specific routes (so we don't crowd up the server.js). We should start to move our endpoints to this folder, and then import them as shown in `server.js`.
+    - To test this out, you'll need to create a table in the database:
+``` 
+    CREATE TABLE testTable (
+    ID int PRIMARY KEY AUTO_INCREMENT,
+    firstName varchar(50),     
+    lastName varchar(50) 
+    );
+ 
+    INSERT INTO testTable (firstName, lastName)
+    VALUES ('jim','halpert');
+    INSERT INTO testTable (firstName, lastName)
+    VALUES ('michael','scott');
+```
+
+- The reason I added the AUTO_INCREMENT, is that it will assign and increment the PKs for us and we won't have to worry about adding a duplicate key by accident. 
+
 
 
 # Architecture

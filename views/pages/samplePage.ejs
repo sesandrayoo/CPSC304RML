@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%- include ('../partials/styling.ejs') %>
+  <title>ok</title>
+</head>
+
+<body>
+
+
+
+
+  <!-- example of how to include header -->
+  <%- include ('../partials/top-nav.ejs') %>
+  <div id="landlord-profile-page">
+
+    <div class="profile-details">
+      <!-- example of SENDING to the database -->
+      <form id="submitForm" action="/samplePage" method="POST">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname">
+        <input type="submit" value="Submit">
+      </form>
+
+    </div>
+
+    <br>
+
+
+    <% if(example){ %>
+
+
+    <!-- example of DISPLAYING what is on the database -->
+    <% for (var i = 0; i < example.length; i++) { %>
+    <div>First Name: <%= example[i].firstName %></div>
+    <div>Last Name: <%= example[i].lastName %></div>
+    <br>
+    <% } %>
+    <% } %>
+
+
+  </div>
+  <!-- example of how to include footer -->
+  <%- include ('../partials/footer.ejs') %>
+
+</body>

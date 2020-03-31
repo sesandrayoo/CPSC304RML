@@ -9,4 +9,74 @@ h1{
   margin: 0;
   padding: 20px;
   color: #007EA7;
-} 
+}
+
+/******* search.ejs styling *******/
+#search-body{
+
+  height: 100vh;
+
+  h2 {
+    margin: 0;
+    padding: 20px;
+    color: #007EA7;
+    text-align: center;
+    margin-top: 35px;
+    font-size: 50px;
+  }
+
+  #search-by {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  #search-btns{
+    .btn-small{
+      background-color: black;
+    }
+    i {
+      margin-right: 5px;
+    }
+    margin-top: -10px;
+    padding: 10px;
+    
+  }
+
+  #search-txt{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    opacity: 0.8;
+  }
+
+  .search-bar{
+    display:flex;
+    justify-content: center;
+
+    input {
+      width: 400px;
+      display:flex;
+      justify-content: center;
+      text-align: center;
+      font-size: 40px;
+      font-family: 'PT Sans Narrow', 'sans-serif';
+      padding: 5px;
+    }
+  }
+
+  
+}
+
+
+/*********************************************/
+
+
+/******* landlordProfilePage.ejs styling *******/
+#landlord-profile-page{
+  height:100vh;
+}
+
+
