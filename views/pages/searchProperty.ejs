@@ -11,7 +11,7 @@
   <%- include ('../partials/top-nav.ejs') %>
 
   <div id="search-body">
-    <h2>Find a Landlord</h2>
+    <h2>Find a Property</h2>
     <div id="search-by"> search by:
       <div id="search-btns">
         <a class="waves-effect waves-light btn-small" id="landlord" onclick = "onclick_event()"><i class="material-icons">person</i><span>landlord</span></a>
@@ -19,12 +19,12 @@
       </div>
     </div>
     <div id="search-txt">
-      I'm looking for a landlord named:
+      I'm looking for a property:
     </div>
     <div class="search-bar">
-      <form action="/search" method="GET">
-        <label for="landlord"></label>
-        <input type="text" placeholder="landlord name" name="landlord" id="landlord"/>
+      <form action="/searchProperty" method="GET">
+        <label for="property"></label>
+        <input type="text" placeholder="property address" name="property" id="property"/>
         <button class="btn waves-effect waves-light btn-small" type="submit" name="action">
           <i class="material-icons right">send</i>
         </button>
@@ -37,16 +37,22 @@
       <table class="highlight striped centered">
         <thead>
           <tr>
-              <th>Name</th>
+              <th>Address</th>
               <th>City</th>
+              <th>Property Type</th>
+              <th>Bedrooms</th>
+              <th>Bathrooms</th>
           </tr>
         </thead>
 
         <tbody>
           <% for (var i = 0; i < category.length; i++) { %>
           <tr>
-            <td><%= category[i].profileName %></td>
-            <td><%= category[i].profileCity %></td>
+            <td><%= category[i].propertyStreetAddress %></td>
+            <td><%= category[i].propertyCity %></td>
+            <td><%= category[i].propertyType %></td>
+            <td><%= category[i].Bedrooms %></td>
+            <td><%= category[i].Bathrooms %></td>
           </tr>
           <% } %>
         </tbody>

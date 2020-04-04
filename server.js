@@ -8,6 +8,7 @@ const connection = require('./db.js');
 
 const session = require('express-session');
 const path = require('path');
+const {searchResults, searchResultsProperty} = require('./routes/searchRoute');
 
 
 const app = express(); 
@@ -30,7 +31,6 @@ app.use(bodyParser.json());
 
 // The default
 app.get('/', (req, res) => {
-    console.log(req);
     const sampleResponse = {
         title: 'RateMyLandlord Home'
     }
@@ -126,14 +126,12 @@ app.get('/listings', (req, res) => {
     res.render('./pages/listings', sampleResponse);
 })
 
-// search Page
-app.get('/search', (req, res) => {
-    const randomvariables = {
-        category: 'Landlord'
-    }
-    res.render('./pages/search', randomvariables);
+/////// SEARCH BY SECTION /////////
+// PAGE: search by landlord 
+app.get('/search', searchResults);
+app.get('/searchProperty', searchResultsProperty);
 
-})
+
 
 // landlordProfile page 
 app.get('/landlordProfile', (req, res) => {
@@ -159,17 +157,6 @@ app.post('/signup', addNewUser);
 app.post('/postListing', addListing);
 
 /////// QUERIES /////////
-
-// Select ALL Landlord profiles
-app.get('/getAllProfiles', (req, res) => {
-    let sql = 'SELECT * FROM LandlordProfiles';
-    let query = db.query(sql, (err, results) => {
-        if(err) throw err;
-        console.log(results);
-        console.log('see below!')
-        res.send('Profiles fetched...');
-    });
-});
 
 // Select single LandlordProfile
 app.get('/getLandlordProfile/:id', (req, res) => {

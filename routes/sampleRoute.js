@@ -9,7 +9,6 @@ module.exports = {
     let sql = "SELECT * FROM testTable";
     db.query(sql, (err, results) => {
       if (err) throw err;
-      console.log(results);
 
       let testVar = [];
 

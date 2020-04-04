@@ -33,12 +33,20 @@ h1{
   }
 
   #search-btns{
+    display: flex;
+    justify-content: space-between;
+    width: 240px;
     .btn-small{
-      background-color: black;
+      background-color: #1f1f1f;
     }
     i {
       margin-right: 5px;
     }
+
+    a{
+      display: flex;
+    }
+
     margin-top: -10px;
     padding: 10px;
     
@@ -55,16 +63,34 @@ h1{
   .search-bar{
     display:flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     input {
-      width: 400px;
-      display:flex;
-      justify-content: center;
+      width: 300px;
       text-align: center;
-      font-size: 40px;
+      font-size: 20px;
       font-family: 'PT Sans Narrow', 'sans-serif';
       padding: 5px;
     }
+
+    .btn-small{
+      background-color: #00A8E8;
+      
+    }
+    form{
+      //position: relative;
+    display: flex;
+    justify-content: center;
+    }
+
+    button{
+      // position: absolute;
+      // right: 0;
+      transform: translate(10px, 18px);
+      width: 53px;
+    }
+
   }
 
   
