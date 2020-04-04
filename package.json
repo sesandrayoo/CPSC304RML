@@ -15,6 +15,7 @@
   "dependencies": {
     "ejs": "^3.0.1",
     "express": "^4.15.3",
+    "express-session": "^1.17.0",
     "mysql": "^2.13.0",
     "nodemon": "^2.0.2"
   }

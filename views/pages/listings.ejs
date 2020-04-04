@@ -12,24 +12,51 @@
 
   <div class="apartment-bg-image">
     
-    <section id="matching-listings" class="container">
+    <div class="container" id="listings-container-outer">
+      
       <h1>Rental Listings</h1>
-      <div class="listing">
-        <img src="" alt="">
-        <h3>3 bedroom basement apartment for rent</h3>
-        <p>Description of apartment</p>
-        <div class="specs">
-          <p>Bedrooms: <span></span></p>
-          <p>Bathrooms: <span></span></p>
+
+      
+      <!-- <section id="matching-listings" class="container">
+        <div class="listing">
+          <img src="" alt="">
+          <h3>3 bedroom basement apartment for rent</h3>
+          <p>Description of apartment</p>
+          <div class="specs">
+            <p>Bedrooms: <span></span></p>
+            <p>Bathrooms: <span></span></p>
+          </div>
+          <ul>
+            <li>Price: $1500</li>
+            <li><a href="#" class="btn btn-reverse">Contact Landlord</a></li>
+          </ul>
         </div>
-        <ul>
-          <li>Price: $1500</li>
-          <li><a href="#" class="btn btn-reverse">Contact Landlord</a></li>
-        </ul>
-      </div>
-    </section>
+      </section> -->
+
+      <section id="matching-listings" class="container">
+        <% if(listings){ %>
+
+          // DISPLAYING what is on the database
+          <% for (var i = 0; i < listings.length; i++) { %>
+          <h3><%= listings[i].listingTitle %></h3>
+          <h4><%= listings[i].listingArea %></h4>
+          <p><%= listings[i].listingDescription %></p>
+          <div class="specs">
+            <p>Bedrooms: <%= listings[i].listingBedrooms %></p>
+            <p>Bathrooms: <%= listings[i].listingBathrooms %></p>
+          </div>
+          <ul>
+            <li>Price: <%= listings[i].listingPrice %></li>
+            <li><a href="#" class="btn btn-reverse">Contact Landlord</a></li>
+          </ul>
+          <br>
+          <% } %>
+          <% } %>
+      </section>
 
 
+    </div>
+  
   </div>
 
 

@@ -47,7 +47,7 @@ Using:
     - run `npm install -g node-sass`
     - run `npm install -g concurrently --save-dev`
 
-9. DATABASE INTERACTIONS SAMPLE (NEW! MARCH 30)
+10. DATABASE INTERACTIONS SAMPLE (NEW! MARCH 30)
     - I added some files to show the base functionality of database interactions & how to use them in our .ejs files. Since it's not part of the project, you'll have to manually type `localhost:3000/samplePage` to test it out. For now, we can keep it in there so that you can see how it works/use the structure in future files.
         - `samplePage.ejs` The front end view. Has a form at the top, and will display the results from your table at the bottom. 
         - `routes\sampleRoute.js`. This is where we will define our page specific routes (so we don't crowd up the server.js). We should start to move our endpoints to this folder, and then import them as shown in `server.js`.
@@ -64,6 +64,9 @@ Using:
     INSERT INTO testTable (firstName, lastName)
     VALUES ('michael','scott');
 ```
+11. express session for login (NEW APRIL 4)
+    - it seems that the easiest way to monitor user login is using sessions. I addded the import statements to server.js. All you have to do is install express with: 
+        - `npm install express-session`
 
 - The reason I added the AUTO_INCREMENT, is that it will assign and increment the PKs for us and we won't have to worry about adding a duplicate key by accident. 
 

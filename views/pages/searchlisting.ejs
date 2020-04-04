@@ -10,7 +10,7 @@
 <body>
   <%- include ('../partials/top-nav.ejs') %>
 
-  <div class="apartment-bg-image">
+  <div class="apartment-bg-image-searchListing">
 
     <div id="search-listings-body">
       <h1>Search rental listings in your area</h1>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="left-container">
-          <form action="/listings" method="get" target="_blank">
+          <form action="/listings" method="get">
             <input type="text" placeholder="city name" id="city" required>
             <input type="number" placeholder="bedrooms" id="bedrooms" required>
             <input type="number" placeholder="bathrooms" id="bathrooms" required>

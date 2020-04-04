@@ -2,6 +2,12 @@ const express = require('express');
 var db = require('./db');
 const bodyParser = require('body-parser');
 const {showAll, addUser} = require('./routes/sampleRoute');
+const {addNewUser} = require('./routes/signupRoute');
+const {addListing} = require('./routes/postlistingsRoute');
+const connection = require('./db.js');
+
+const session = require('express-session');
+const path = require('path');
 
 
 const app = express(); 
@@ -9,9 +15,18 @@ app.set('views', `${__dirname}/views`)
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 // Sets the correct directory for the project use (instead of your computer)
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(__dirname + '/public'));
+
+// use session for determining if user is logged in
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(bodyParser.json());
 
 // The default
 app.get('/', (req, res) => {
@@ -28,41 +43,60 @@ app.get('/', (req, res) => {
 
 //login page
 app.get('/login', (req, res) => {
-    const sampleResponse = {
-
-        title: 'RateMyLandlord Login'
-    }
+    const sampleResponse = {title: 'RateMyLandlord Login'}
     res.render('./pages/login', sampleResponse);
-    console.log('on login page!');
 })
+app.post('/auth', (request, response) => {
+    let username = request.body.username;
+    let password = request.body.password;
+    if (username && password) {
+        connection.query('SELECT * FROM user WHERE userName = ? AND userPassword = ?', [username, password], 
+        function(error, results, fields) {
+        if (results.length > 0) {
+          request.session.loggedin = true;
+          request.session.username = username;
+          request.session.userpassword = password;
+          response.redirect('/');
+        } else {
+          response.send('Incorrect Username and/or Password!');
+        }			
+        response.end();
+      });
+    } else {
+      response.send('Please enter Username and Password!');
+      response.end();
+    }
+  })
 
 //signup page
 app.get('/signup', (req, res) => {
-    const sampleResponse = {
-        title: 'RateMyLandlord Signup'
-    }
+    const sampleResponse = { title: 'RateMyLandlord Signup' }
     res.render('./pages/signup', sampleResponse);
-    console.log('on signup page!');
 })
+
+// Account page
+app.get('/account', (request, response) => {
+    if (request.session.loggedin) {
+        connection.query('SELECT * FROM user WHERE userName = ?', [request.session.username], 
+        function(error, results, fields) {
+            response.render('./pages/account', { account: results[0] });
+        });
+    } else {
+        response.redirect('/login');
+    }
+  })
 
 //search listing page
 app.get('/searchlisting', (req, res) => {
-    const sampleResponse = {
-        title: 'RateMyLandlord searchlisting'
-    }
+    const sampleResponse = { title: 'RateMyLandlord searchlisting' }
     res.render('./pages/searchlisting', sampleResponse);
-    console.log('on search listing page!');
 })
 
 //listings page
 app.get('/listings', (req, res) => {
-    const sampleResponse = {
-        title: 'RateMyLandlord listings'
-    }
+    const sampleResponse = { title: 'RateMyLandlord listings' }
     res.render('./pages/listings', sampleResponse);
-    console.log('on listings page!');
 })
-
 
 // search Page
 app.get('/search', (req, res) => {
@@ -73,7 +107,6 @@ app.get('/search', (req, res) => {
 
 })
 
-
 // landlordProfile page 
 app.get('/landlordProfile', (req, res) => {
     const sampleResponse = {
@@ -82,17 +115,20 @@ app.get('/landlordProfile', (req, res) => {
     res.render('./pages/landlordProfilePage', sampleResponse);
 })
 
+// postListing page
+app.get('/postListing', (req, res) => {
+    const sampleResponse = { title: 'Post Listing page' }
+    res.render('./pages/postListing', sampleResponse);
+})
+
 
 /// SAMPLE SECTION /////
 /* import the endpoints */
 app.get('/samplePage', showAll);
 app.post('/samplePage', addUser);
 
-
-
-
-
-
+app.post('/signup', addNewUser);
+app.post('/postListing', addListing);
 
 /////// QUERIES /////////
 

@@ -3,7 +3,7 @@ var db = require("../db");
 
 // export routes so that they can be imported in the server.js
 module.exports = {
-    // GET endpoint 
+  // GET endpoint 
   showAll: (req, res) => {
 
     let sql = "SELECT * FROM testTable";

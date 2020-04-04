@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%- include ('../partials/styling.ejs') %>
+  <title><%= title %></title>
+</head>
+
+<body>
+  <%- include ('../partials/top-nav.ejs') %>
+
+  <div class="apartment-bg-image-postlisting">
+
+    <div id="post-listings-body">
+      <h1>Post a rental property listing</h1>
+
+      <div class="container" id="listing-details">
+        <form action="/postListing" method="post">
+          <label for="uploaderid">Your user ID: </label><input type="text" name="uploaderid" id="uploaderid" required>
+          <label for="listingtitle">Title: </label><input type="text" name="listingtitle" id="listingtitle" required>
+          <label for="listingarea">Location (area): </label><input type="text" name="listingarea" id="listingarea" required>
+          <label for="listingdescription">Description: </label><input type="text" name="listingdescription" id="listingdescription" required>
+          <label for="listingprice">Price per month: </label><input type="number" name="listingprice" id="listingprice">
+          <button type="submit" id="post-listing-btn" class="listing-sub-btn" value="submit">Post Listing</button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+  <%- include ('../partials/footer.ejs') %>
+</body>

@@ -1,8 +1,8 @@
 body {
   font-family: 'PT Sans Narrow', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 nav.navbar {
@@ -19,17 +19,17 @@ header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
-  
+
 a#brand-name {
-    font-size: 26px;
-    color: #FFFFFF;
-  }
+  font-size: 26px;
+  color: #FFFFFF;
+}
 
 header input.search-bar {
   background-color: #FFFFFF !important;
@@ -68,6 +68,7 @@ header .search-bar-wrapper {
   width: 300px;
   padding: 0px 12px;
 }
+
 header .nav-actions {
   display: flex;
   justify-content: space-between;
@@ -85,20 +86,15 @@ a#signup {
 
 /* FOOTER SECTION */
 footer {
-  position: relative;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
   background: #1f1f1f;
   height: 15vh;
   color: #FFFFFF;
 }
+
 /*# sourceMappingURL=style.css.map */
 
 //landing page
@@ -110,118 +106,145 @@ footer {
   justify-content: center;
 
   h1 {
-      color: #000000;
+    color: #000000;
   }
 
   .options {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-evenly;
+    margin: 50px;
+
+    li {
+      list-style-type: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: rgb(32, 32, 32);
+      text-align: center;
+    }
+
+    .container {
+      height: 150px;
+      width: 175px;
+      background: #00a8e8;
+      border-radius: 10px;
       display: flex;
       align-items: center;
-      width: 80%;
-      justify-content: space-evenly;
-      margin: 50px;
+      flex-direction: column;
+      justify-content: center;
 
-      li {
-          list-style-type: none;
+      .p1 {
+        font-size: 20px;
+        color: #eeeeee;
       }
 
-      a {
-          text-decoration: none;
-          color:rgb(32, 32, 32);
-          text-align: center;
-       }
-
-      .container {
-          height: 150px;
-          width: 175px;
-          background: #00a8e8;
-          border-radius: 10px;
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
-
-          .p1 {
-              font-size: 20px;
-              color: #eeeeee;
-          }
-
-          .p2 {
-              margin-top: -15px;
-              font-size: 24px;
-              font-weight: bold;
-              color: #eeeeee;
-          }
+      .p2 {
+        margin-top: -15px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #eeeeee;
       }
+    }
   }
 }
 
 
 // Login/signup forms
 .account-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+  max-height: 20vh;
+
+  button {
+    width: 140px;
+    height: 40px;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    background: #00a8e8;
+    color: #eeeeee;
+    font-size: 24px;
+    margin: 10px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    color: #000000;
+    margin-bottom: 24px;
+  }
+
+  li {
+    list-style-type: none;
+    padding-top: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 19px;
+  }
+
+  #form-link {
+    color: #66be44;
+  }
+
+  .container form {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 40px;
+    font-size: 22px;
+    background: #3A3A3A;
+    opacity: .8;
+    width: 450px;
+    margin: auto;
+  }
 
-    button {
-      width: 140px;
+  .label-input {
+    width: 300px;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      color: #7e7e7e;
+    }
+
+    .switch {
+      margin-top: 10px;
+      width: 40px;
       height: 40px;
-      border: none;
       display: inline-block;
-      text-decoration: none;
-      background: #00a8e8;
-      color: #eeeeee;
-      font-size: 24px; 
-      margin: 18px;
-      margin-bottom: 24px;
-    }
-    
-    h1 {
-      color: #000000;
-      margin-bottom: 24px;
     }
 
-    li {
-      list-style-type: none;
-      padding-top: 20px;
+    #landlord-check {
+      width: 20px;
+      height: 20px;
     }
+  }
 
-    a {
-        text-decoration: none;
-        color:#eeeeee;
-        text-align: center;
-        font-size: 19px;
-    }
+}
 
-    #form-link {
-      color: #00a8e8;
-    }
-
-    .container form {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        font-size: 22px;
-        background: #3A3A3A;
-        opacity: .8;
-        width: 450px;
-        margin: auto;
-    }
-
-    .label-input {
-        width: 300px;
-        margin: 10px;
-        padding-top: 20px;
-        display: flex;
-        flex-direction: column;
-
-        label {
-            color: #7e7e7e;
-        }
-    }
+// signup page
+.apartment-bg-image-signup {
+  background: url(../globals/apartments.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 120vh;
+  width: 100%;
 }
 
 // Search listings page
+.apartment-bg-image-searchListing {
+  background: url(../globals/apartments.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 120vh;
+  width: 100%;
+}
 #search-listings-body {
   display: flex;
   align-items: center;
@@ -238,9 +261,9 @@ footer {
     background: #3A3A3A;
     opacity: .8;
     margin-top: 40px;
-    
+
     .right-container {
-      width:50%;
+      width: 50%;
       margin: 20px;
       margin-bottom: 40px;
       color: #eeeeee;
@@ -266,7 +289,9 @@ footer {
         width: 180px;
       }
 
-      #city, #bedrooms, #bathrooms {
+      #city,
+      #bedrooms,
+      #bathrooms {
         background: #ffffff;
         text-align: center;
       }
@@ -285,14 +310,141 @@ footer {
         text-decoration: none;
         background: #00a8e8;
         color: #eeeeee;
-        font-size: 24px; 
+        font-size: 24px;
         margin-top: 10px;
         margin-bottom: -20px;
         margin-left: 30px;
-
       }
 
     }
   }
 
+}
+
+//Post a listing page
+.apartment-bg-image-postlisting {
+  background: url(../globals/apartments.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 120vh;
+  width: 100%;
+}
+
+#post-listings-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    margin-top: 60px;
+    color: #000000;
+  }
+
+  .container {
+    width: 500px;
+    display: flex;
+    align-items: center;
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      align-items: center;
+      background: #3A3A3A;
+      opacity: .9;
+      padding-top: 20px;
+
+      input {
+        width: 400px;
+        height: 24px;
+      }
+
+      label {
+        margin: 20px;
+      }
+
+    }
+  }
+
+  button {
+    width: 140px;
+    height: 40px;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    background: #00a8e8;
+    color: #eeeeee;
+    font-size: 24px;
+    margin: 30px;
+
+  }
+}
+
+// Display Listings page
+#listings-container-outer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    margin-top: 60px;
+    color: #000000;
+  }
+}
+
+// my account page
+#accountContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 120vh;
+
+  h1 {
+    margin-top: 60px;
+    color: #000000;
+  }
+
+  .container {
+    display: flex;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    #account-info-current {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-top: 15px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    #account-info-update {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .button {
+        width: 110px;
+        height: 28px;
+        border: none;
+        display: inline-block;
+        text-decoration: none;
+        background: #00a8e8;
+        color: #eeeeee;
+        font-size: 13px;
+        margin: 20px;
+        margin-top: 30px;
+      }
+
+      #delete-account-btn {
+        background: #d64646;
+      }
+    }
+  }
 }
