@@ -6,7 +6,11 @@ module.exports = {
   // POST endpoint
   createProfile: (req, res) => {
 
-    // TODO: CHANGE THE USERID TO BE THE CURRENT USER
+    let currentUserName='NotARealUser';
+    
+    if(req.session.loggedin){
+      currentUserName=req.session.username;
+    } 
 
     if (req.body.address != "") {
 
@@ -27,7 +31,7 @@ module.exports = {
 
         INSERT INTO LandlordProfile 
         (profileName, profileCity, userID) 
-        VALUES('${req.body.name}', '${req.body.city}', 3);
+        VALUES('${req.body.name}', '${req.body.city}', (SELECT userID from User WHERE userName='${currentUserName}'));
 
         INSERT INTO Owns VALUES ((SELECT profileID FROM LandlordProfile
           WHERE profileName='${req.body.name}' LIMIT 1), (SELECT propertyID FROM Property

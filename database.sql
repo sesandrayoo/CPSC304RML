@@ -220,6 +220,10 @@ CREATE TABLE Review (
 INSERT INTO Review (userID, reviewText, starRating, profileID) VALUES(3, 'BEST. LANDLORD. EVER. They are soooo personable and super understanding. Very responsive too.', 5, 1);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(4, 'Pretty reasonable landlord.', 4, 1);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(6, 'Holy moly this landlord is crap. If I could give a negative 10 stars I would.', 1, 2);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(3, 'As good as a landlord can be...', 4, 6);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(4, 'Great landlord!', 5, 3);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Bad experience.', 1, 4);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Took my money!!! what a scam!', 1, 5);
 
 
 /*********************************************/
@@ -238,8 +242,12 @@ CREATE TABLE Verification (
 
 /*** Verification: Insert ***/
 INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(1, 1, 1, 'contracts');
-INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(2, 1, 0, 'contracts');
-INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(3, 2, 1, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(2, 2, 0, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(3, 1, 1, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(4, 1, 1, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(5, 1, 0, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(6, 1, 1, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(7, 1, 0, 'contracts');
 
 /*********************************************/
 /************** VERIFICATION_LOG (claims sub-table) *****************/
@@ -254,10 +262,17 @@ CREATE TABLE Verification_Log(
 
 /*** Verification: Insert ***/
 INSERT INTO Verification_Log VALUES(1, '2019-06-15');
+INSERT INTO Verification_Log VALUES(2, '2018-01-15');
+INSERT INTO Verification_Log VALUES(3, '2020-06-20');
+INSERT INTO Verification_Log VALUES(4, '2020-04-20');
+INSERT INTO Verification_Log VALUES(5, '2019-05-20');
+INSERT INTO Verification_Log VALUES(6, '2019-02-20');
+INSERT INTO Verification_Log VALUES(7, '2019-10-23');
+
 
 /*********************************************/
 /************** VERIFICATION_CLAIM (claims sub-table) *****************/
-/*********************************************/
+/********************************************
 CREATE TABLE Verification_Claim(
 	profileID INT,
 	userID INT,
@@ -271,8 +286,8 @@ CREATE TABLE Verification_Claim(
 	ON DELETE CASCADE
 );
 
-/*** Verification: Insert ***/
-INSERT INTO Verification_Claim VALUES(1, 3, 1);
+/*** Verification: Insert **
+INSERT INTO Verification_Claim VALUES(1, 3, 1); ****/
 
 
 
