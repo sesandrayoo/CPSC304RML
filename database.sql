@@ -91,6 +91,7 @@ INSERT INTO LandlordProfile (profileName, profileCity, userID) VALUES('Robert Du
 INSERT INTO LandlordProfile (profileName, profileCity, userID) VALUES('Jan Levinson', 'Victoria', 7);
 INSERT INTO LandlordProfile (profileName, profileCity, userID) VALUES('Creed Bratton', 'Vancouver', 4);
 INSERT INTO LandlordProfile (profileName, profileCity, userID) VALUES('Bob Vance', 'Vancouver', 4);
+INSERT INTO LandlordProfile (profileName, profileCity, userID) VALUES('David Smith', 'Victoria', 7);
 
 /************************************************************/
 /********* MUNICIPALITY TABLE (sub table of property) *******/
@@ -131,12 +132,9 @@ INSERT INTO PropertyLocation VALUES('456 2nd Ave', 'V3Q3D6');
 /************** PROPERTY TABLE *************/
 /*******************************************/
 CREATE TABLE Property (
-	propertyID INT PRIMARY KEY AUTO_INCREMENT, 
-	propertyAvailability BOOL, 
+	propertyID INT PRIMARY KEY AUTO_INCREMENT,
 	propertyStreetAddress VARCHAR(100), 
-	propertyDescription VARCHAR(500), 
-	Bathrooms DECIMAL(2, 1), 
-	Bedrooms INT, 
+	propertyDescription VARCHAR(500),
 	propertyType VARCHAR(40),
 	FOREIGN KEY (propertyStreetAddress) REFERENCES
 		PropertyLocation(propertyStreetAddress)
@@ -144,11 +142,11 @@ CREATE TABLE Property (
 );
 
 /*** Property: Insert ***/
-INSERT INTO Property (propertyAvailability, propertyStreetAddress, propertyDescription, Bathrooms, Bedrooms, propertyType) VALUES(1, '789-15918 24 Ave', 'A spacious downtown condo, newly renovated.', 1, 2, 'condo');
-INSERT INTO Property (propertyAvailability, propertyStreetAddress, propertyDescription, Bathrooms, Bedrooms, propertyType) VALUES(0, '456 2nd Ave', 'Perfect for a single person. A nice property.', 1, null, 'condo');
-INSERT INTO Property (propertyAvailability, propertyStreetAddress, propertyDescription, Bathrooms, Bedrooms, propertyType) VALUES(0, '1234 West 6th Ave', 'FAMILY TOWNHOUSE. Close to schools.', 2.5, 4, 'townhouse');
-INSERT INTO Property (propertyAvailability, propertyStreetAddress, propertyDescription, Bathrooms, Bedrooms, propertyType) VALUES(1, '987 Sesame Street', 'Close to skytrain. Kinda old.', null, null, 'detached house');
-INSERT INTO Property (propertyAvailability, propertyStreetAddress, propertyDescription, Bathrooms, Bedrooms, propertyType) VALUES(1, '3312 Agar Street', 'Bright place. Pets allowed!', '2', 2, 'townhouse');
+INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('789-15918 24 Ave', 'A spacious downtown condo, newly renovated.','condo');
+INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('456 2nd Ave', 'Perfect for a single person. A nice property.','condo');
+INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('1234 West 6th Ave', 'FAMILY TOWNHOUSE. Close to schools.','townhouse');
+INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('987 Sesame Street', 'Close to skytrain. Kinda old.','detached house');
+INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('3312 Agar Street', 'Bright place. Pets allowed!','townhouse');
 
 
 /*************************************/
