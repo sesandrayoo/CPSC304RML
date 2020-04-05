@@ -31,6 +31,7 @@ CREATE TABLE User (
 );
 
 /*** User: Insert ***/
+INSERT INTO User (userName, userAbout, userType, userPassword) VALUES('NotARealUser', 'throwaway', 'landlord', '123');
 INSERT INTO User (userName, userAbout, userType, userPassword) VALUES('JimHalpert', 'Paper salesman', 'landlord', 'password123');
 INSERT INTO User (userName, userAbout, userType, userPassword) VALUES('PamBH', 'Office Admin, I have 2 kids.', 'landlord', 'password123');
 INSERT INTO User (userName, userAbout, userType, userPassword) VALUES('KevMalone', 'Accountant', 'tenant', 'password');
@@ -217,13 +218,15 @@ CREATE TABLE Review (
  );
 
 /*** Review: Insert ***/
-INSERT INTO Review (userID, reviewText, starRating, profileID) VALUES(3, 'BEST. LANDLORD. EVER. They are soooo personable and super understanding. Very responsive too.', 5, 1);
-INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(4, 'Pretty reasonable landlord.', 4, 1);
+INSERT INTO Review (userID, reviewText, starRating, profileID) VALUES(3, 'BEST. LANDLORD. EVER. They are soooo personable and super understanding. Very responsive too. He watched my dog while I was on vacation, and I dont think will ever have another landlord as good as him!', 5, 1);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(4, 'Pretty reasonable landlord. I never ran into any issues, but nothing special either. The place was clean before I got there and I left it the same, got my security deposit back. Pretty flexible guy.', 4, 1);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(6, 'Holy moly this landlord is crap. If I could give a negative 10 stars I would.', 1, 2);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(3, 'As good as a landlord can be...', 4, 6);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(4, 'Great landlord!', 5, 3);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Bad experience.', 1, 4);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Took my money!!! what a scam!', 1, 5);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Friendly guy, but he seems really stuck up and arrogant. If you can handle that kind of thing', 3, 1);
+
 
 
 /*********************************************/
@@ -248,6 +251,7 @@ INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUE
 INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(5, 1, 0, 'contracts');
 INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(6, 1, 1, 'contracts');
 INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(7, 1, 0, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(8, 2, 0, 'contracts');
 
 /*********************************************/
 /************** VERIFICATION_LOG (claims sub-table) *****************/
@@ -268,6 +272,7 @@ INSERT INTO Verification_Log VALUES(4, '2020-04-20');
 INSERT INTO Verification_Log VALUES(5, '2019-05-20');
 INSERT INTO Verification_Log VALUES(6, '2019-02-20');
 INSERT INTO Verification_Log VALUES(7, '2019-10-23');
+INSERT INTO Verification_Log VALUES(8, '2019-11-28');
 
 
 /*********************************************/
