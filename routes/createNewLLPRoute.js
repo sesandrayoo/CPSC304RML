@@ -51,7 +51,7 @@ module.exports = {
     }
 
     const searchResults = {
-      values: "Landlord Profile"
+      values: "Landlord profile"
     };
 
     res.render("./pages/success", searchResults);

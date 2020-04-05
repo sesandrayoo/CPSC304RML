@@ -126,11 +126,6 @@ app.get('/listings', (req, res) => {
     res.render('./pages/listings', sampleResponse);
 })
 
-/////// SEARCH BY SECTION /////////
-// PAGE: search by landlord 
-app.get('/search', searchResults);
-app.get('/searchProperty', searchResultsProperty);
-///////////////////////////////////
 
 // postListing page
 app.get('/postListing', (req, res) => {
@@ -140,6 +135,22 @@ app.get('/postListing', (req, res) => {
 
 app.post('/signup', addNewUser);
 app.post('/postListing', addListing);
+
+
+/////// SEARCH BY SECTION /////////
+// PAGE: search by landlord 
+app.get('/search', searchResults);
+app.get('/searchProperty', searchResultsProperty);
+///////////////////////////////////
+
+
+////////// CREATE NEW LLP PAGE ///////
+app.get('/createNewLLP', (req, res) => {
+    res.render('./pages/createNewLLP');
+})
+app.post('/createNewLLP', createProfile);
+//////////////////////////////////////
+
 
 ///// LANDLORD PROFILE PAGE ///////////
 app.get('/landlordProfile', (req, res) => {
