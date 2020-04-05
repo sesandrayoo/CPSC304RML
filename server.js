@@ -50,8 +50,10 @@ app.get('/login', (req, res) => {
 app.post('/auth', (request, response) => {
     let username = request.body.username;
     let password = request.body.password;
+    let qry = (`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password]);
+    let userid = qry.userID;
     if (username && password) {
-        connection.query('SELECT * FROM user WHERE userName = ? AND userPassword = ?', [username, password], 
+        connection.query(`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password], 
         function(error, results, fields) {
         if (results.length > 0) {
           request.session.loggedin = true;
@@ -89,7 +91,6 @@ app.get('/account', (request, response) => {
 
   app.get('/accountDel', (request, response) => {
     let name = request.session.username;
-    console.log(name);
     request.session.loggedin = false;
     connection.query('DELETE FROM user WHERE userName = ?', [name], 
     function(error, results, fields) {
@@ -103,11 +104,7 @@ app.post('/account', (request, response) => {
     let username = request.body.newUsername;
     let about = request.body.newAbout;
     let type = request.body.newType;
-    console.log(username);
-    console.log(about);
-    console.log(type);
-    console.log(request.session.username);
-    console.log(request.session.userpassword);
+    console.log(request.session.userObj);
     connection.query('UPDATE user SET userName = ?, userAbout = ?, userType = ? WHERE userName = ? AND userPassword = ?', [username, about, type, request.session.username, request.session.userpassword], 
     function(error, results, fields) {
         if (error) throw error;
