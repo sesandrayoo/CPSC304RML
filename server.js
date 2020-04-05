@@ -4,20 +4,18 @@ const bodyParser = require('body-parser');
 const {showAll, addUser} = require('./routes/sampleRoute');
 const {addNewUser} = require('./routes/signupRoute');
 const {addListing} = require('./routes/postlistingsRoute');
+const {searchResults, searchResultsProperty} = require('./routes/searchRoute');
+const { createProfile } = require("./routes/createNewLLPRoute");
 const connection = require('./db.js');
 
 const session = require('express-session');
 const path = require('path');
-const {searchResults, searchResultsProperty} = require('./routes/searchRoute');
 
-const { createProfile } = require("./routes/createNewLLPRoute");
+
 const app = express(); 
 app.set('views', `${__dirname}/views`)
 app.set('view engine', 'ejs')
-
-
-
-// TODO: check if needed app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Sets the correct directory for the project use (instead of your computer)
@@ -132,6 +130,7 @@ app.get('/listings', (req, res) => {
 // PAGE: search by landlord 
 app.get('/search', searchResults);
 app.get('/searchProperty', searchResultsProperty);
+///////////////////////////////////
 
 // postListing page
 app.get('/postListing', (req, res) => {
@@ -139,7 +138,10 @@ app.get('/postListing', (req, res) => {
     res.render('./pages/postListing', sampleResponse);
 })
 
-// landlordProfile page 
+app.post('/signup', addNewUser);
+app.post('/postListing', addListing);
+
+///// LANDLORD PROFILE PAGE ///////////
 app.get('/landlordProfile', (req, res) => {
     const { id } = req.query;
     const parsedId = parseInt(id, 10); // use this id
@@ -206,27 +208,16 @@ app.get('/landlordProfile', (req, res) => {
     res.render('./pages/landlordProfile', response);
     // res.render('./pages/landlordProfilePage', sampleResponse);
 })
+////////////////////////////////////
 
-
-/// SAMPLE SECTION /////
+//////////// SAMPLE SECTION ////////////
 /* import the endpoints */
 app.get('/samplePage', showAll);
 app.post('/samplePage', addUser);
-
-app.post('/signup', addNewUser);
-app.post('/postListing', addListing);
+////////////////////////////////////////
 
 /////// QUERIES /////////
 
-// Select single LandlordProfile
-app.get("/getLandlordProfile/:id", (req, res) => {
-  let sql = `SELECT * FROM LandlordProfiles WHERE id = ${req.params.id}`;
-  let query = db.query(sql, (err, result) => {
-    if (err) throw err;
-
-    res.send("LandlordProfile fetched...");
-  });
-});
 
 app.post("/searchlisting/submit", (req, res, next) => {
   res.redirect(".pages/listings");
