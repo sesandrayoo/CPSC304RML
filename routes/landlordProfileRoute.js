@@ -5,7 +5,14 @@ module.exports = {
   // get endpoint
   getLLP: (req, res) => {
 
-    const { id } = req.query;
+    const id = req.query.id;
+    let orderBy = req.query.orderBy || 'reviewDate';
+    let sortOrder = 'DESC';
+    
+    if(orderBy === 'lowestRating'){
+        sortOrder = 'ASC';
+        orderBy = 'rating'
+    } 
     const parsedId = parseInt(id, 10); // use this id
 
     let sql = `SELECT * FROM LandlordProfile WHERE profileID=${parsedId};
@@ -24,7 +31,7 @@ module.exports = {
 	  LEFT JOIN User U ON R.userID=U.userID
     LEFT JOIN Verification_Log T ON V.verificationID=T.verificationID
     WHERE profileID=${parsedId}
-    ORDER BY reviewDate DESC;
+    ORDER BY ${orderBy} ${sortOrder};
 
     /**** get latest verified *****/
     select R.reviewID, U.userName, R.reviewText, R.starRating, V.verificationStatus, DATE_FORMAT(T.claimDateTime, "%M %d %Y") as reviewDate

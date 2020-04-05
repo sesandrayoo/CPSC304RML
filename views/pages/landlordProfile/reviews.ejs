@@ -9,11 +9,11 @@
     
     <!-- Filter-->
     <div class="reviews__all-filter"> 
-        <select id="selectDropDown">
+        <select id="selectDropdown">
           <option value="" disabled selected>Filter By:</option>
-          <option value="1">Date</option>
-          <option value="2">Highest Rating</option>
-          <option value="3">Lowest Rating</option>
+          <option value="reviewDate">Date</option>
+          <option value="rating">Highest Rating</option>
+          <option value="lowestRating">Lowest Rating</option>
         </select>
         <label>Materialize Select</label>
     </div>
@@ -93,7 +93,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const instances = M.FormSelect.init(elems);
 });
 
-const $=jQuery;
+$('#selectDropdown').on('change', (e) => {
+
+  const { value } = e.target; // most recent value of the element
+  const { search, pathname } = window.location //all info about the url (search, all query params of a url) (pathname, any of the text that comes after .com)
+  const listOfQueryParams = search.split('&')
+  // If orderBy queryParam key exists, remove it
+  const newListOfQueryParams = listOfQueryParams.filter((query) => {
+    return query.indexOf('orderBy') === -1
+  })
+  // Create new query params by concating the filtered queryParam with the new onChange value 
+  const newQueryParam = newListOfQueryParams.length
+    ? `${newListOfQueryParams.join('&')}&orderBy=${value}`
+    : `?orderBy=${value}` // if theres no query param
+  const newHref = `${pathname}${newQueryParam}`;
+  window.location.href = newHref; // Redirect
+});
 
 
 </script>

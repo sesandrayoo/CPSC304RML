@@ -7,15 +7,17 @@
 </head>
 
 <body>
-  <!-- example of how to include header -->
+  <!-- header -->
   <%- include ('../partials/top-nav.ejs') %>
 
   <div id="search-body">
     <h2>Find a Landlord</h2>
     <div id="search-by"> search by:
       <div id="search-btns">
-        <a class="waves-effect waves-light btn-small" id="landlord" href="/search"><i class="material-icons">person</i><span>landlord</span></a>
-        <a class="waves-effect waves-light btn-small" id="property" href="/searchProperty"><i class="material-icons">home</i><span>property</span></a>
+        <a class="waves-effect waves-light btn-small" id="landlord" href="/search"><i
+            class="material-icons">person</i><span>landlord</span></a>
+        <a class="waves-effect waves-light btn-small" id="property" href="/searchProperty"><i
+            class="material-icons">home</i><span>property</span></a>
       </div>
     </div>
     <div id="search-txt">
@@ -24,49 +26,52 @@
     <div class="search-bar">
       <form action="/search" method="GET">
         <label for="landlord"></label>
-        <input type="text" placeholder="landlord name" name="landlord" id="landlord"/>
+        <input type="text" placeholder="landlord name" name="landlord" id="landlord" />
         <button class="btn waves-effect waves-light btn-small" type="submit" name="action">
           <i class="material-icons right">send</i>
         </button>
       </form>
-      
+
     </div>
     <br>
 
     <% if(category.length > 0){ %>
-      <table class="highlight striped centered">
-        <thead>
-          <tr>
-              <th>Name</th>
-              <th>City</th>
-          </tr>
-        </thead>
+    <table class="highlight striped centered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+        </tr>
+      </thead>
 
-        <tbody class="profiles">
-          <% for (var i = 0; i < category.length; i++) { %>
-            <tr data-id="<%= category[i].profileID %>" data-name="<%= category[i].profileName %>">
-              <td><%= category[i].profileName %></td>
-              <td><%= category[i].profileCity %></td>
-            </tr>
-          <% } %>
-        </tbody>
-      </table>
-      <br>
+      <tbody class="profiles">
+        <% for (var i = 0; i < category.length; i++) { %>
+        <tr data-id="<%= category[i].profileID %>" data-name="<%= category[i].profileName %>">
+          <td><%= category[i].profileName %></td>
+          <td><%= category[i].profileCity %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <br>
     <% } %>
     <br>
-    <div id="ll-not-found"> 
-      <span>Can't find the landlord you're looking for? </span> 
+    <br>
+    <br>
+    <div id="ll-not-found">
+      <span>Can't find the landlord you're looking for? </span>
       <br>
- <a class="waves-effect waves-light btn-small" id="createNewLLP" href="/createNewLLP"><span>Create a new landlord profile</span></a>
- 
-   </div>
+      <a class="waves-effect waves-light btn-small" id="createNewLLP" href="/createNewLLP"><span>Create a new landlord
+          profile</span></a>
+
+    </div>
   </div>
 
   <!-- example of how to include footer -->
   <div class="footer-wrapper">
     <%- include ('../partials/footer.ejs') %>
   </div>
-  
+
 </body>
 <script type="text/javascript">
   const profiles = document.querySelector('tbody.profiles') || null;
