@@ -15,22 +15,22 @@
     <div class="container">
       <div class="container" id="account-info-current">
         <h2>Your current info</h2>
-        <label for="account-userId">User ID Number: </label><p id="account-userId"><%= account.userID %></p>
+        <label for="account-userId">User ID Number: </label><p name="accountUserid" id="accountUserid"><%= account.userID %></p>
         <label for="account-userName">User Name: </label><p id="account-userName"><%= account.userName %></p>
         <label for="account-userAbout">About You: </label><p id="account-userAbout"><%= account.userAbout %></p>
         <label for="account-userType">You are listed as a </label><p id="account-userType"><%= account.userType %></p>
       </div>
       <div class="container" id="account-info-update">
         <h2>Update your info</h2>
-        <form action="/account" method="put">
-          <label for="account-userName">User Name: </label><input type="text">
-          <label for="account-userAbout">About You: </label><input type="text">
-          <label for="account-userType">Tennant/Landlord</label><input type="text">
-          <div class="buttons">
-            <button type="submit" class="button">Update</button>
-            <button type="submit" class="button" id="delete-account-btn">Delete Account</button>
-          </div>
-          </form>
+        <form action="/account" method="post">
+          <label for="account-userName">User Name: </label><input type="text" name="newUsername" required>
+          <label for="account-userAbout">About You: </label><input type="text" name="newAbout" required>
+          <label for="account-userType">Tennant/Landlord</label><input type="text" name="newType" required>
+          <button type="submit" class="button" id="update-button">Update</button>
+        </form>
+        <form action="/accountDel" method="delete">
+          <button type="submit" class="button" id="delete-account-btn">Delete Account</button>
+        </form>
       </div>
     </div>
  </div>
