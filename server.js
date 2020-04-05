@@ -6,6 +6,7 @@ const {addNewUser} = require('./routes/signupRoute');
 const {addListing} = require('./routes/postlistingsRoute');
 const {searchResults, searchResultsProperty} = require('./routes/searchRoute');
 const { createProfile } = require("./routes/createNewLLPRoute");
+const { getLLP } = require("./routes/landlordProfileRoute");
 const connection = require('./db.js');
 
 const session = require('express-session');
@@ -137,114 +138,37 @@ app.post('/signup', addNewUser);
 app.post('/postListing', addListing);
 
 
-/////// SEARCH BY SECTION /////////
+//********** SEARCH BY SECTION *********//
 // PAGE: search by landlord 
 app.get('/search', searchResults);
 app.get('/searchProperty', searchResultsProperty);
-///////////////////////////////////
+//***************************************//
 
 
-////////// CREATE NEW LLP PAGE ///////
+//**********  CREATE NEW LLP PAGE *********//
 app.get('/createNewLLP', (req, res) => {
     res.render('./pages/createNewLLP');
 })
 app.post('/createNewLLP', createProfile);
-//////////////////////////////////////
+//***************************************//
 
 
-///// LANDLORD PROFILE PAGE ///////////
-app.get('/landlordProfile', (req, res) => {
-    const { id } = req.query;
-    const parsedId = parseInt(id, 10); // use this id
+//********** LANDLORD PROFILE PAGE *********//
+app.get('/landlordProfile', getLLP);
+//***************************************//
 
-    let sql = `SELECT * FROM LandlordProfile WHERE profileID=${parsedId};
-    
-    SELECT propertyStreetAddress FROM Property P
-    LEFT OUTER JOIN Owns O ON O.propertyID=P.propertyID
-    LEFT OUTER JOIN LandlordProfile L ON O.profileID=L.profileID
-    WHERE L.profileID=${parsedId};
 
-    
-    `;
-    console.log('QUERY*****************', sql);
-    db.query(sql, [0, 1],(err, results) => {
-      if (err) throw err;
-
-      console.log('results1**********', results[0][0].profileName);
-
-      const response = {
-        name: results[0][0].profileName,
-        rating: 4.7,
-        ratingCount: 244,
-        location: results[0][0].profileCity,
-        managedProperties: [
-            '1234 West 6th Avenue',
-            '#410 - Megadoodoo Street',
-            '100 Kingsway Avenue'
-        ],
-        latestReview: {
-            date: 'March 16, 2020',
-            entry: `I really liked this landlord. She was super reasonable and understanding. 
-                I always paid my rent on time and never ran into any problems. Shewas walways able ro abdalslkfbsdakbf`
-        },
-        otherLandlords: [
-            {
-                name: 'Jimbob Brown',
-                rating: 3.8
-            },
-            {
-                name: 'Alice Wonderland',
-                rating: 2.3
-            },
-            {
-                name: 'Donald Trump',
-                rating: 1.5
-            },
-            {
-                name: 'Deidre Mengedoht',
-                rating: 4.9
-            }
-        ],
-        reviews: {
-            count: 6,
-            entries: [
-                {
-                    rating: 4.5,
-                    isVerified: true,
-                    property: '1234 West 6th Avenue',
-                    date: 'March 23, 2020',
-                    description: 'We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.'
-                },
-                {
-                    rating: 3.8,
-                    isVerified: false,
-                    property: '1234 West 6th Avenue',
-                    date: 'March 10, 2020',
-                    description: 'Some more sample text here wow.'
-                },
-                {
-                    rating: 4.8,
-                    isVerified: false,
-                    property: '100 Kingsway Avenue',
-                    date: 'June 10, 2018',
-                    description: 'Great house wow much good nfjeknfdjknfjkrjnfjdkcjndjskdnjd'
-                }
-            ]
-        }
-    }
-    res.render('./pages/landlordProfile', response);
-
-    });
-
-    // res.render('./pages/landlordProfilePage', sampleResponse);
-})
-////////////////////////////////////
-
-//////////// SAMPLE SECTION ////////////
+//**********  SAMPLE SECTION *********//
 /* import the endpoints */
 app.get('/samplePage', showAll);
 app.post('/samplePage', addUser);
-////////////////////////////////////////
+//***************************************//
+
+
+
+
+
+
 
 /////// QUERIES /////////
 
