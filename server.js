@@ -10,11 +10,15 @@ const session = require('express-session');
 const path = require('path');
 const {searchResults, searchResultsProperty} = require('./routes/searchRoute');
 
-
+const { createProfile } = require("./routes/createNewLLPRoute");
 const app = express(); 
 app.set('views', `${__dirname}/views`)
 app.set('view engine', 'ejs')
-app.use(bodyParser.urlencoded({ extended: true }));
+const express = require("express");
+
+
+
+// TODO: check if needed app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Sets the correct directory for the project use (instead of your computer)
@@ -145,7 +149,6 @@ app.get('/postListing', (req, res) => {
     const sampleResponse = { title: 'Post Listing page' }
     res.render('./pages/postListing', sampleResponse);
 })
-
 
 /// SAMPLE SECTION /////
 /* import the endpoints */

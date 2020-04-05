@@ -109,13 +109,13 @@ h1{
 
   #ll-not-found{
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     color: #1f1f1f;
     a{
       background-color: #00A8E8;
       margin: auto;
-      width: 35%;
-      font-size: 18px;
+      width: 25%;
+      font-size: 15px;
     }
   }
 }
@@ -125,6 +125,39 @@ h1{
 #create-new-LLP{
 
   height: 100vh;
+  #title{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin-top: 3%;
+  }
+
+  #form-outline{
+    background-color: rgba(0, 168, 232, 0.19);
+    margin: auto;
+    width: 50%;
+    margin-top: 1%;
+    height: 85%;
+
+    form{
+      margin: auto;
+      padding: 6%;
+
+      label{
+        color: #1f1f1f;
+      }
+
+      button{
+        display: block;
+        margin: auto;
+        margin-top: 2%;
+        background-color: #56A081;
+      }
+
+    }
+
+
+  }
 }
 
 

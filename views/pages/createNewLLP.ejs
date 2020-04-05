@@ -2,17 +2,46 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <%- include ('../partials/styling.ejs') %>
+    <meta charset="utf-8">
+    <%- include ('../partials/styling.ejs') %>
 </head>
 
 <body>
-  <%- include ('../partials/top-nav.ejs') %>
+    <%- include ('../partials/top-nav.ejs') %>
 
-<div id="create-new-LLP">
-    hi
-</div>
+    <div id="create-new-LLP">
+        <div id="title">Create A New Landlord Profile</div>
+        <div id="form-outline">
+            <form action="/createNewLLP" method="POST">
+                <label for="name">Landlord name:</label>
+                <input type="text" placeholder="landlord first and last name" name="name" id="name" required/>
+
+                <label for="name">Landlord city:</label>
+                <input type="text" placeholder="city" name="city" id="city" required/>
+                <br>
+                <span> Property Info (optional)</span>
+                <br>
+                <label for="name">Address:</label>
+                <input type="text" placeholder="address" name="address" id="address"/>
+                <label for="postalcode">Postal Code:</label>
+                <input type="text" placeholder="postal code" name="postalcode" id="postalcode"/>
+                <label for="description">Property Description:</label>
+                <input type="text" placeholder="description" name="description" id="description"/>
+                <label for="type">Property type:</label>
+                <input type="text" placeholder="condo, townhouse, detached..." name="type" id="type"/>
+                <button class="btn waves-effect waves-light btn-small" type="submit" name="action">
+                    Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+            </form>
+
+        </div>
+    </div>
 
 
-  <%- include ('../partials/footer.ejs') %>
+
+    <%- include ('../partials/footer.ejs') %>
 </body>
+<script type="text/javascript">
+
+</script>

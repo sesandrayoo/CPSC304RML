@@ -68,17 +68,38 @@ h1 {
       color: white; }
   #search-body #ll-not-found {
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     color: #1f1f1f; }
     #search-body #ll-not-found a {
       background-color: #00A8E8;
       margin: auto;
-      width: 35%;
-      font-size: 18px; }
+      width: 25%;
+      font-size: 15px; }
 
 /******* createNewLLP.ejs styling *******/
 #create-new-LLP {
   height: 100vh; }
+  #create-new-LLP #title {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin-top: 3%; }
+  #create-new-LLP #form-outline {
+    background-color: rgba(0, 168, 232, 0.19);
+    margin: auto;
+    width: 50%;
+    margin-top: 1%;
+    height: 85%; }
+    #create-new-LLP #form-outline form {
+      margin: auto;
+      padding: 6%; }
+      #create-new-LLP #form-outline form label {
+        color: #1f1f1f; }
+      #create-new-LLP #form-outline form button {
+        display: block;
+        margin: auto;
+        margin-top: 2%;
+        background-color: #56A081; }
 
 /******* landlordProfilePage.ejs styling *******/
 #landlord-profile-page {
