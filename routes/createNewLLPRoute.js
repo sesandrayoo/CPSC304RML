@@ -25,14 +25,16 @@ module.exports = {
             VALUES('${req.body.address}', '${req.body.description}','${req.body.type}');
             
 
-            INSERT INTO LandlordProfile 
-            (profileName, profileCity, userID) 
-            VALUES('${req.body.name}', '${req.body.city}', 3);
+        INSERT INTO LandlordProfile 
+        (profileName, profileCity, userID) 
+        VALUES('${req.body.name}', '${req.body.city}', 3);
 
-            
-            `;
+        INSERT INTO Owns VALUES ((SELECT profileID FROM LandlordProfile
+          WHERE profileName='${req.body.name}'), (SELECT propertyID FROM Property
+          WHERE propertyStreetAddress='${req.body.address}'));
+          `;
 
-      db.query(sql, [1, 2, 3], (err, result) => {
+      db.query(sql, [1, 2, 3, 4], (err, result) => {
         if (err) {
           res.redirect("/");
         }
