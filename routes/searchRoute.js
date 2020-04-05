@@ -30,9 +30,11 @@ module.exports = {
   },
   searchResultsProperty: (req, res) => {
     if (Object.keys(req.query).length > 0) {
-      let sql = `SELECT P.propertyStreetAddress, M.propertyCity, P.propertyType, P.Bedrooms, P.Bathrooms FROM Property P
+      let sql = `SELECT P.propertyStreetAddress, M.propertyCity, P.propertyType, L.profileName FROM Property P
       LEFT OUTER JOIN propertyLocation pl ON p.propertyStreetAddress=pl.propertyStreetAddress
       LEFT OUTER JOIN Municipality M ON pl.propertyPostal=M.propertyPostal
+      LEFT OUTER JOIN Owns O ON P.propertyID=O.propertyID
+      LEFT OUTER JOIN LandlordProfile L ON O.profileID=L.profileID
       WHERE P.propertyStreetAddress LIKE '%${req.query.property}%';`;
 
       let tempArr = [];
