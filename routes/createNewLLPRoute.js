@@ -30,8 +30,8 @@ module.exports = {
         VALUES('${req.body.name}', '${req.body.city}', 3);
 
         INSERT INTO Owns VALUES ((SELECT profileID FROM LandlordProfile
-          WHERE profileName='${req.body.name}'), (SELECT propertyID FROM Property
-          WHERE propertyStreetAddress='${req.body.address}'));
+          WHERE profileName='${req.body.name}' LIMIT 1), (SELECT propertyID FROM Property
+          WHERE propertyStreetAddress='${req.body.address}' LIMIT 1));
           `;
 
       db.query(sql, [1, 2, 3, 4], (err, result) => {

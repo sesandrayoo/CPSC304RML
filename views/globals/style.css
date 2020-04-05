@@ -34,7 +34,7 @@ span, p {
 /***************** GENERAL STYLING RULES END *******/
 /******* search.ejs styling *******/
 #search-body {
-  height: 100vh; }
+  height: 115vh; }
   #search-body h2 {
     margin: 0;
     padding: 20px;
