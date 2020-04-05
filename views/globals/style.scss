@@ -93,11 +93,39 @@ h1{
 
   }
 
-  
+  .profiles {
+    tr {
+      &:hover {
+        cursor: pointer;
+      }
+      &:active {
+        background-color: #2a2a2a !important;
+        td {
+          color: white;
+        }
+      }
+    }
+  }
+
+  #ll-not-found{
+    text-align: center;
+    font-size: 25px;
+    color: #1f1f1f;
+    a{
+      background-color: #00A8E8;
+      margin: auto;
+      width: 35%;
+      font-size: 18px;
+    }
+  }
 }
 
 
-/*********************************************/
+/******* createNewLLP.ejs styling *******/
+#create-new-LLP{
+
+  height: 100vh;
+}
 
 
 /******* landlordProfilePage.ejs styling *******/

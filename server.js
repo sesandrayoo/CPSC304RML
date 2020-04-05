@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Sets the correct directory for the project use (instead of your computer)
-app.use(express.static(__dirname + '/views'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/views"));
+app.use(express.static(__dirname + "/public"));
 
 // use session for determining if user is logged in
 app.use(session({
@@ -30,16 +30,15 @@ app.use(session({
 app.use(bodyParser.json());
 
 // The default
-app.get('/', (req, res) => {
-    const sampleResponse = {
-        title: 'RateMyLandlord Home'
-    }
-    // Renders the index.ejs page
-    res.render('./pages/index', sampleResponse);
-    // you should see this console log in your terminal/command line when you go to localhost:3000/
-    console.log('on homepage!');
-    
-})
+app.get("/", (req, res) => {
+  const sampleResponse = {
+    title: "RateMyLandlord Home"
+  };
+  // Renders the index.ejs page
+  res.render("./pages/index", sampleResponse);
+  // you should see this console log in your terminal/command line when you go to localhost:3000/
+  console.log("on homepage!");
+});
 
 //login page
 app.get('/login', (req, res) => {
@@ -159,42 +158,42 @@ app.post('/postListing', addListing);
 /////// QUERIES /////////
 
 // Select single LandlordProfile
-app.get('/getLandlordProfile/:id', (req, res) => {
-    let sql = `SELECT * FROM LandlordProfiles WHERE id = ${req.params.id}`;
-    let query = db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        
-        res.send('LandlordProfile fetched...');
-    });
+app.get("/getLandlordProfile/:id", (req, res) => {
+  let sql = `SELECT * FROM LandlordProfiles WHERE id = ${req.params.id}`;
+  let query = db.query(sql, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+
+    res.send("LandlordProfile fetched...");
+  });
 });
 
-app.post('/searchlisting/submit', (req, res, next) => {
-    res.redirect('.pages/listings');
+app.post("/searchlisting/submit", (req, res, next) => {
+  res.redirect(".pages/listings");
 });
 
-// EXAMPLE Update post 
-app.get('/updatepost/:id', (req, res) => {
-    let newTitle = 'Updated Title';
-    let sql = `UPDATE posts SET title = '${newTitle}' WHERE id = ${req.params.id}`;
-    let query = db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Post updated...');
-    });
+// EXAMPLE Update post
+app.get("/updatepost/:id", (req, res) => {
+  let newTitle = "Updated Title";
+  let sql = `UPDATE posts SET title = '${newTitle}' WHERE id = ${req.params.id}`;
+  let query = db.query(sql, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    res.send("Post updated...");
+  });
 });
 
 // EXAMPLE Delete post
-app.get('/deletepost/:id', (req, res) => {
-    let newTitle = 'Updated Title';
-    let sql = `DELETE FROM posts WHERE id = ${req.params.id}`;
-    let query = db.query(sql, (err, result) => {
-        if(err) throw err;
-        console.log(result);
-        res.send('Post deleted...');
-    });
+app.get("/deletepost/:id", (req, res) => {
+  let newTitle = "Updated Title";
+  let sql = `DELETE FROM posts WHERE id = ${req.params.id}`;
+  let query = db.query(sql, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+    res.send("Post deleted...");
+  });
 });
 
-app.listen('3000', () => {
-    console.log('Server started on port 3000');
+app.listen("3000", () => {
+  console.log("Server started on port 3000");
 });

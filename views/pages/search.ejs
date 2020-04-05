@@ -14,8 +14,8 @@
     <h2>Find a Landlord</h2>
     <div id="search-by"> search by:
       <div id="search-btns">
-        <a class="waves-effect waves-light btn-small" id="landlord" onclick = "onclick_event()"><i class="material-icons">person</i><span>landlord</span></a>
-        <a class="waves-effect waves-light btn-small" id="property" onclick = "onclick_event()"><i class="material-icons">home</i><span>property</span></a>
+        <a class="waves-effect waves-light btn-small" id="landlord" href="/search"><i class="material-icons">person</i><span>landlord</span></a>
+        <a class="waves-effect waves-light btn-small" id="property" href="/searchProperty"><i class="material-icons">home</i><span>property</span></a>
       </div>
     </div>
     <div id="search-txt">
@@ -42,20 +42,26 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="profiles">
           <% for (var i = 0; i < category.length; i++) { %>
-          <tr>
-            <td><%= category[i].profileName %></td>
-            <td><%= category[i].profileCity %></td>
-          </tr>
+            <tr data-id="<%= category[i].profileID %>" data-name="<%= category[i].profileName %>">
+              <td><%= category[i].profileName %></td>
+              <td><%= category[i].profileCity %></td>
+            </tr>
           <% } %>
         </tbody>
       </table>
-      
+      <br>
+      <div id="ll-not-found"> 
+        <span>Can't find the Landlord you're looking for? </span> 
+        <br>
+   <a class="waves-effect waves-light btn-small" id="createNewLLP" href="/createNewLLP"><span>Create a new landlord profile</span></a>
+   
+     </div>
     <% } %>
+    
+
   </div>
-
-
 
   <!-- example of how to include footer -->
   <div class="footer-wrapper">
@@ -64,10 +70,26 @@
   
 </body>
 <script type="text/javascript">
-  document.getElementById("landlord").onclick = function () {
-      location.href = "/search";
-  };
-  document.getElementById("property").onclick = function () {
-      location.href = "/searchProperty";
-  };
+
+ const profiles = document.querySelector('tbody.profiles') || null;
+  const requestData = (dataId = '') => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `/landlordProfile?id=${dataId}`);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = () => {
+      console.log(xhr.responseText);
+      if (xhr.status === 200 && xhr.responseText) {
+        console.log('success!!!');
+      }
+    }
+    xhr.send(); // Using URL queries so no need to send body data
+  }
+  if (profiles !== null) {
+    profiles.querySelectorAll('tr').forEach((row) => {
+      const dataId = row.getAttribute('data-id');
+      const dataName = row.getAttribute('data-name');
+      row.addEventListener('click', () => { requestData(dataId) });
+    });
+  }
+
 </script>

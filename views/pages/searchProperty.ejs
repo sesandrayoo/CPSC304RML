@@ -14,8 +14,8 @@
     <h2>Find a Property</h2>
     <div id="search-by"> search by:
       <div id="search-btns">
-        <a class="waves-effect waves-light btn-small" id="landlord" onclick = "onclick_event()"><i class="material-icons">person</i><span>landlord</span></a>
-        <a class="waves-effect waves-light btn-small" id="property" onclick = "onclick_event()"><i class="material-icons">home</i><span>property</span></a>
+        <a class="waves-effect waves-light btn-small" id="landlord" href="/search"><i class="material-icons">person</i><span>landlord</span></a>
+        <a class="waves-effect waves-light btn-small" id="property" href="/searchProperty"><i class="material-icons">home</i><span>property</span></a>
       </div>
     </div>
     <div id="search-txt">
@@ -70,10 +70,5 @@
   
 </body>
 <script type="text/javascript">
-  document.getElementById("landlord").onclick = function () {
-      location.href = "/search";
-  };
-  document.getElementById("property").onclick = function () {
-      location.href = "/searchProperty";
-  };
+
 </script>

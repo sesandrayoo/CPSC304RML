@@ -60,8 +60,26 @@ h1 {
     #search-body .search-bar button {
       transform: translate(10px, 18px);
       width: 53px; }
+  #search-body .profiles tr:hover {
+    cursor: pointer; }
+  #search-body .profiles tr:active {
+    background-color: #2a2a2a !important; }
+    #search-body .profiles tr:active td {
+      color: white; }
+  #search-body #ll-not-found {
+    text-align: center;
+    font-size: 25px;
+    color: #1f1f1f; }
+    #search-body #ll-not-found a {
+      background-color: #00A8E8;
+      margin: auto;
+      width: 35%;
+      font-size: 18px; }
 
-/*********************************************/
+/******* createNewLLP.ejs styling *******/
+#create-new-LLP {
+  height: 100vh; }
+
 /******* landlordProfilePage.ejs styling *******/
 #landlord-profile-page {
   height: 100vh; }
