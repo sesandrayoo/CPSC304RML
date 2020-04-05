@@ -2,12 +2,14 @@
   background: url(./apartments.png) no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
-  width: 100%; }
+  width: 100%;
+}
 
 h1 {
   margin: 0;
   padding: 20px;
-  color: #007EA7; }
+  color: #007EA7;
+}
 
 /******* GENERAL STYLING RULES **********/
 span, p {
@@ -34,6 +36,7 @@ span, p {
 /***************** GENERAL STYLING RULES END *******/
 /******* search.ejs styling *******/
 #search-body {
+<<<<<<< HEAD
   height: 115vh; }
   #search-body h2 {
     margin: 0;
@@ -123,9 +126,81 @@ span, p {
         margin: auto;
         margin-top: 2%;
         background-color: #56A081; }
+=======
+  height: 100vh;
+}
+
+#search-body h2 {
+  margin: 0;
+  padding: 20px;
+  color: #007EA7;
+  text-align: center;
+  margin-top: 35px;
+  font-size: 50px;
+}
+
+#search-body #search-by {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#search-body #search-btns {
+  margin-top: -10px;
+  padding: 10px;
+}
+
+#search-body #search-btns .btn-small {
+  background-color: black;
+}
+
+#search-body #search-btns i {
+  margin-right: 5px;
+}
+
+#search-body #search-txt {
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 30px;
+  opacity: 0.8;
+}
+
+#search-body .search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#search-body .search-bar input {
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 40px;
+  font-family: 'PT Sans Narrow', 'sans-serif';
+  padding: 5px;
+}
+>>>>>>> d3a1c2c46ff55f6b4c14907fa4e4fabd149b5889
 
 /******* landlordProfilePage.ejs styling *******/
 #landlord-profile-page {
+<<<<<<< HEAD
   height: 100vh; }
 
 /******* success.ejs styling *******/
@@ -138,3 +213,8 @@ span, p {
     color: #56A081;
     margin-top: 5%;
     font-size: 250px; }
+=======
+  height: 100vh;
+}
+/*# sourceMappingURL=style.css.map */
+>>>>>>> d3a1c2c46ff55f6b4c14907fa4e4fabd149b5889
