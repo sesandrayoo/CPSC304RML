@@ -180,6 +180,8 @@ CREATE TABLE Listing (
 	listingTitle VARCHAR(150),
 	listingArea VARCHAR(50),
 	listingDescription VARCHAR(500),
+	listingBathrooms INT,
+	listingBedrooms INT,
 	listingPrice INT,
 	FOREIGN KEY (uploaderID) REFERENCES
 		User(userID) 
@@ -187,15 +189,15 @@ CREATE TABLE Listing (
 );
 
 /*** Listing: Insert ***/
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(1, 'New Apartment for Rent', 'Richmond', 'Close to skytrain, brand new!', '800');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(2, 'Downtown Condo for Rent!', 'Vancouver', 'Walking distance to mall', '1200');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(6, 'Townhouse Available', 'Vancouver', 'Peaceful mountain views', '2500');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(3, 'Beautiful 2bdr Apartment', 'Kitsilano', 'Very close to the beach, cafes and restaurants', '2100');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(4, 'Basement apartment near UBC', 'Point Grey', 'Peaceful mountain views', '2500');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(5, 'Condo in quiet area', 'Point Grey', 'mountain views and quiet', '3500');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(7, 'New apartment above garage', 'Point Grey', 'newly done, 2 bedrooms (very large)', '2200');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(8, '2bd in Hip Neighborhood!', 'East Van', 'close to commercial. lots of Cafes and restaurants within walking distance', '1450');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingPrice) VALUES(9, 'Large 3bdr first floor apartment', 'East Van', 'charming old house with lower and upper apartment. Great landlords.', '1900');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(1, 'New Studio Apartment for Rent', 'Richmond', 'Close to skytrain, brand new!', '0', '1', '800');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(2, 'Downtown Condo for Rent!', 'Vancouver', 'Walking distance to mall', '2', '1', '1200');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(6, 'Townhouse Available', 'Vancouver', 'Peaceful mountain views', '3', '2', '4500');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(3, 'Beautiful 2bdr Apartment', 'Kitsilano', 'Very close to the beach, cafes and restaurants', '2', '1', '2100');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(4, 'Basement apartment near UBC', 'Point Grey', 'Peaceful mountain views', '3', '1', '2500');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(5, 'Condo in quiet area', 'Point Grey', 'mountain views and quiet', '2', '2', '3500');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(7, 'New apartment above garage', 'Point Grey', 'newly done, 2 bedrooms (very large)', '2', '1', '2200');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(8, '2bd in Hip Neighborhood!', 'East Van', 'close to commercial. lots of Cafes and restaurants within walking distance', '2', '1', '1450');
+INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBathrooms, listingBedrooms, listingPrice) VALUES(9, 'Large 3bdr first floor apartment', 'East Van', 'charming old house with lower and upper apartment. Great landlords.', '3', '1', '1900');
 
 
 /*********************************************/
