@@ -9,6 +9,29 @@ h1 {
   padding: 20px;
   color: #007EA7; }
 
+/******* GENERAL STYLING RULES **********/
+span, p {
+  font-size: 18px; }
+
+.main-grid {
+  display: flex;
+  justify-content: center;
+  margin: 48px auto;
+  max-width: 800px; }
+  @media only screen and (min-width: 1024px) {
+    .main-grid {
+      max-width: 940px; } }
+  @media only screen and (min-width: 1280px) {
+    .main-grid {
+      max-width: 1176px; } }
+  @media only screen and (min-width: 1440px) {
+    .main-grid {
+      max-width: 1280px; } }
+
+.divider {
+  height: 3px; }
+
+/***************** GENERAL STYLING RULES END *******/
 /******* search.ejs styling *******/
 #search-body {
   height: 100vh; }
@@ -26,7 +49,7 @@ h1 {
   #search-body #search-btns {
     display: flex;
     justify-content: space-between;
-    width: 240px;
+    width: 278px;
     margin-top: -10px;
     padding: 10px; }
     #search-body #search-btns .btn-small {

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%- include ('../../partials/styling.ejs') %>
+  <link rel="stylesheet" href="../../globals/landlordProfile/index.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <%- include ('../../partials/top-nav.ejs') %>
+  <div class="main-grid">
+    <!-- Review Main section-->
+    <div class="review__main-section">
+      <!-- Review Left Side-->
+      <%- include ('./review-info-main.ejs') %>
+      <!-- Review right side-->
+      <%- include ('./review-info-other.ejs') %>
+    </div>
+  </div>
+  <div class="main-grid">
+    <!-- Reviews section-->
+    <%- include ('./reviews.ejs') %>
+  </div>
+  <!-- Footer -->
+  <div class="footer-wrapper">
+    <%- include ('../../partials/footer.ejs') %>
+  </div>
+  
+</body>
+<script type="text/javascript">
+  console.log("hi");
+</script>

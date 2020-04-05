@@ -1,0 +1,95 @@
+<div class="reviews__all">
+  <div class="reviews__all-count">
+    <p>
+      <%= reviews.count + ' Reviews' %>
+    </p>
+  </div>
+  <div class="divider"></div>
+  <div class="reviews__all-list">
+    
+    <!-- Filter-->
+    <div class="reviews__all-filter">      
+      <select>
+        <option value="" disabled selected>Filter By:</option>
+        <option value="1">Date</option>
+        <option value="2">Highest Rating</option>
+        <option value="3">Lowest Rating</option>
+      </select>
+      <label>Materialize Select</label>
+    </div>
+
+    <!-- List of reviews-->
+    <% if (reviews.entries){ %>
+      <% const entries = reviews.entries; %>
+      <ul>
+        <% for (let i = 0; i < entries.length; i++) { %>
+          <% const entry = entries[i]; %>
+          <% 
+            const {
+              rating,
+              isVerified,
+              property,
+              date,
+              description
+            } = entry;
+            const verifiedText = isVerified ? 'verified' : 'unverified';
+          %>
+          <li>
+            <div class="reviews__single-review box-padding">
+              <!-- Rating-->
+              <div class="reviews__single-review-rating">
+                <div>
+                  <p>RATING</p>
+                </div>
+                <div>
+                  <span>
+                    <%= rating %>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="reviews__single-review-description-container">
+                <div>
+                  <div
+                    class="reviews__single-review-verified"
+                    data-type="<%= verifiedText %>"  
+                  >
+                    <span>
+                      <%= verifiedText %>
+                    </span>
+                  </div>
+                  <div class="reviews__single-review-date">
+                    <span>
+                      <%= date %>
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="reviews__single-review-property">
+                    <span class="review-property-text">
+                      <span>Property: </span>
+                      <span><%= property %></span>
+                    </span>
+                  </div>
+                  <div class="reviews__single-review-description">
+                    <p>
+                      <%= description %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% } %>
+      </ul>
+    <% } %>
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  const elems = document.querySelectorAll('select');
+  const instances = M.FormSelect.init(elems);
+});
+</script>

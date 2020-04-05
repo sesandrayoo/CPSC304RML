@@ -1,0 +1,50 @@
+<div class="review__info-other">
+
+  <!-- Review latest verified-->
+  <div class="review__latest box-padding">
+    <div class="review__latest-title">
+      <span>LATEST VERIFIED REVIEW</span>
+    </div>
+    <div class="review__latest-details">
+      <p>
+        <%= latestReview.date %>
+      </p>
+      <p>
+        <%= latestReview.entry %>
+      </p>
+    </div>
+  </div>
+
+  <!-- Other landlords-->
+  <div class="review__other-landlords">
+    <div>
+      <h5>
+        View other landlords nearby in
+        <span>
+          <%= location + ', Canada' %>
+        </span>
+      </h5>
+    </div>
+    <div class="review__other-landlords-ratings box-padding">
+      <% if (otherLandlords){ %>
+        <% for (let i = 0; i < otherLandlords.length; i++) { %>
+          <% const landlord = otherLandlords[i] %>
+          <% const name = landlord.name %>
+          <% const rating = landlord.rating %>
+          <div>
+            <div class="review__other-ratings">
+              <span>
+                <%= rating %>
+              </span>
+            </div>
+            <div class="review__other-name">
+              <span>
+                <%= name %>
+              </span>
+            </div>
+          </div>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
+</div>

@@ -14,7 +14,6 @@ const { createProfile } = require("./routes/createNewLLPRoute");
 const app = express(); 
 app.set('views', `${__dirname}/views`)
 app.set('view engine', 'ejs')
-const express = require("express");
 
 
 
@@ -134,21 +133,80 @@ app.get('/listings', (req, res) => {
 app.get('/search', searchResults);
 app.get('/searchProperty', searchResultsProperty);
 
-
-
-// landlordProfile page 
-app.get('/landlordProfile', (req, res) => {
-    const sampleResponse = {
-        title: 'RateMyLandlord Login'
-    }
-    res.render('./pages/landlordProfilePage', sampleResponse);
-})
-
 // postListing page
 app.get('/postListing', (req, res) => {
     const sampleResponse = { title: 'Post Listing page' }
     res.render('./pages/postListing', sampleResponse);
 })
+
+// landlordProfile page 
+app.get('/landlordProfile', (req, res) => {
+    const { id } = req.query;
+    const parsedId = parseInt(id, 10); // use this id
+    const response = {
+        name: 'Julia Smith',
+        rating: 4.7,
+        ratingCount: 244,
+        location: 'Vancouver',
+        managedProperties: [
+            '1234 West 6th Avenue',
+            '#410 - Megadoodoo Street',
+            '100 Kingsway Avenue'
+        ],
+        latestReview: {
+            date: 'March 16, 2020',
+            entry: `I really liked this landlord. She was super reasonable and understanding. 
+                I always paid my rent on time and never ran into any problems. Shewas walways able ro abdalslkfbsdakbf`
+        },
+        otherLandlords: [
+            {
+                name: 'Jimbob Brown',
+                rating: 3.8
+            },
+            {
+                name: 'Alice Wonderland',
+                rating: 2.3
+            },
+            {
+                name: 'Donald Trump',
+                rating: 1.5
+            },
+            {
+                name: 'Deidre Mengedoht',
+                rating: 4.9
+            }
+        ],
+        reviews: {
+            count: 6,
+            entries: [
+                {
+                    rating: 4.5,
+                    isVerified: true,
+                    property: '1234 West 6th Avenue',
+                    date: 'March 23, 2020',
+                    description: 'We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.'
+                },
+                {
+                    rating: 3.8,
+                    isVerified: false,
+                    property: '1234 West 6th Avenue',
+                    date: 'March 10, 2020',
+                    description: 'Some more sample text here wow.'
+                },
+                {
+                    rating: 4.8,
+                    isVerified: false,
+                    property: '100 Kingsway Avenue',
+                    date: 'June 10, 2018',
+                    description: 'Great house wow much good nfjeknfdjknfjkrjnfjdkcjndjskdnjd'
+                }
+            ]
+        }
+    }
+    res.render('./pages/landlordProfile', response);
+    // res.render('./pages/landlordProfilePage', sampleResponse);
+})
+
 
 /// SAMPLE SECTION /////
 /* import the endpoints */
@@ -165,7 +223,6 @@ app.get("/getLandlordProfile/:id", (req, res) => {
   let sql = `SELECT * FROM LandlordProfiles WHERE id = ${req.params.id}`;
   let query = db.query(sql, (err, result) => {
     if (err) throw err;
-    console.log(result);
 
     res.send("LandlordProfile fetched...");
   });

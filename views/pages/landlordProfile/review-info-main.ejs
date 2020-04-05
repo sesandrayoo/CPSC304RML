@@ -1,0 +1,59 @@
+<div class="review__info-main">
+
+  <!--Rating number-->
+  <div class="review__rating-container">
+    <div class="review__rating">
+      <span>
+        <%= rating %>
+      </span>
+      <span id="out-of-5">
+        /5
+      </span>
+    </div>
+    <div class="review__rating-text">
+      <span>
+        Overall Qualtiy Based on <%= ratingCount %> ratings.
+      </span>
+    </div>
+  </div>
+
+  <!--Rating Name and location-->
+  <div class="review__profile">
+    <div class="review__profile-name">
+      <h1>
+        <%= name %>
+      </h1>
+      <h2>
+        Landlord in <span><%= location + ', Canada' %></span>
+      </h2>
+    </div>
+    <div class="review__profile-rate-btn-container">
+      <a href="/">
+        <div class="review__profile-rate-btn">
+          <span>Rate <%= name %></span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!--Rating Properties Managed-->
+  <div class="review__properties-managed">
+    <div>
+      <h3>
+        PROPERTIES MANAGED:
+      </h3>
+      <div class="divider"></div>
+    </div>
+    <% if (managedProperties){ %>
+      <ul>
+        <% for (let i = 0; i < managedProperties.length; i++) { %>
+          <li>
+            <span>
+              <%= managedProperties[i] %>
+            </span>
+          </li>
+        <% } %>
+      </ul>
+    <% } %>
+  </div>
+</div>

@@ -1,0 +1,157 @@
+.review__info-main {
+  display: flex;
+  flex-direction: column; }
+  .review__info-main .review__rating-container .review__rating {
+    display: flex; }
+    .review__info-main .review__rating-container .review__rating span:first-child {
+      font-size: 68px;
+      line-height: 68px; }
+    .review__info-main .review__rating-container .review__rating span:last-child {
+      margin-left: 6px;
+      font-size: 44px;
+      line-height: 44px;
+      letter-spacing: 2px;
+      color: rgba(0, 0, 0, 0.29); }
+  .review__info-main .review__profile {
+    margin-top: 52px; }
+    .review__info-main .review__profile h1, .review__info-main .review__profile h2 {
+      margin: 0;
+      padding: 0; }
+    .review__info-main .review__profile h2 {
+      font-size: 24px; }
+      .review__info-main .review__profile h2 span {
+        font-size: 24px;
+        font-weight: 800; }
+    .review__info-main .review__profile .review__profile-rate-btn-container {
+      margin: 12px 0; }
+      .review__info-main .review__profile .review__profile-rate-btn-container a .review__profile-rate-btn {
+        background-color: #00A8E8;
+        padding: 0 24px;
+        width: 200px;
+        text-align: center;
+        border-radius: 8px; }
+        .review__info-main .review__profile .review__profile-rate-btn-container a .review__profile-rate-btn span {
+          font-size: 20px;
+          line-height: 2.5;
+          color: #fff; }
+  .review__info-main .review__properties-managed h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 4px; }
+  .review__info-main .divider {
+    height: 3px;
+    width: 85%; }
+
+.review__info-other .review__latest {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ededed; }
+  .review__info-other .review__latest .review__latest-title {
+    background-color: #405771;
+    padding: 0;
+    width: 220px;
+    text-align: center; }
+    .review__info-other .review__latest .review__latest-title span {
+      font-size: 20px;
+      line-height: 2;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #fff; }
+
+.review__info-other .review__other-landlords h5 {
+  font-size: 24px; }
+  .review__info-other .review__other-landlords h5 span {
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase; }
+
+.review__info-other .review__other-landlords-ratings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  background-color: #CFEEFB; }
+  .review__info-other .review__other-landlords-ratings > div {
+    display: flex;
+    justify-content: flex-start; }
+    .review__info-other .review__other-landlords-ratings > div .review__other-ratings {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #00A8E8;
+      font-size: 24px;
+      line-height: 24px;
+      width: 80px;
+      margin-right: 12px; }
+      .review__info-other .review__other-landlords-ratings > div .review__other-ratings span {
+        color: #fff; }
+    .review__info-other .review__other-landlords-ratings > div .review__other-name {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #000; }
+
+.reviews__all {
+  margin-top: 12px; }
+  .reviews__all .reviews__all-count p {
+    font-size: 18px;
+    font-weight: 800; }
+  .reviews__all .reviews__all-list {
+    margin-top: 18px; }
+  .reviews__all .reviews__single-review {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    background-color: #ededed;
+    margin-bottom: 24px; }
+    .reviews__all .reviews__single-review .reviews__single-review-rating {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 24px; }
+      .reviews__all .reviews__single-review .reviews__single-review-rating > div:first-child {
+        text-align: center; }
+        .reviews__all .reviews__single-review .reviews__single-review-rating > div:first-child p {
+          font-size: 20px;
+          font-weight: 800;
+          margin: 0; }
+      .reviews__all .reviews__single-review .reviews__single-review-rating > div:last-child {
+        margin: 0 auto;
+        width: 80px;
+        height: 80px;
+        background-color: #00A8E8;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .reviews__all .reviews__single-review .reviews__single-review-rating > div:last-child span {
+          font-size: 52px;
+          font-weight: 800;
+          color: #fff; }
+    .reviews__all .reviews__single-review .reviews__single-review-description-container > div:first-child {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 18px; }
+      .reviews__all .reviews__single-review .reviews__single-review-description-container > div:first-child .reviews__single-review-verified {
+        text-align: center;
+        width: 140px;
+        padding: 4px 0;
+        background-color: #3D4849; }
+        .reviews__all .reviews__single-review .reviews__single-review-description-container > div:first-child .reviews__single-review-verified[data-type="verified"] {
+          background-color: #07294E; }
+        .reviews__all .reviews__single-review .reviews__single-review-description-container > div:first-child .reviews__single-review-verified span {
+          font-size: 20px;
+          text-transform: uppercase;
+          color: #fff;
+          letter-spacing: 0.8px; }
+      .reviews__all .reviews__single-review .reviews__single-review-description-container > div:first-child .reviews__single-review-date span {
+        font-size: 20px;
+        font-weight: 800; }
+    .reviews__all .reviews__single-review > div:last-child .reviews__single-review-property .review-property-text span:first-child {
+      font-weight: bold; }
+
+.box-padding {
+  padding: 24px 24px; }
+
+.review__main-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }

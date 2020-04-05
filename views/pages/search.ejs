@@ -69,19 +69,9 @@
   
 </body>
 <script type="text/javascript">
-
- const profiles = document.querySelector('tbody.profiles') || null;
+  const profiles = document.querySelector('tbody.profiles') || null;
   const requestData = (dataId = '') => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', `/landlordProfile?id=${dataId}`);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = () => {
-      console.log(xhr.responseText);
-      if (xhr.status === 200 && xhr.responseText) {
-        console.log('success!!!');
-      }
-    }
-    xhr.send(); // Using URL queries so no need to send body data
+    window.location.href = `/landlordProfile?id=${dataId}`
   }
   if (profiles !== null) {
     profiles.querySelectorAll('tr').forEach((row) => {
@@ -90,5 +80,4 @@
       row.addEventListener('click', () => { requestData(dataId) });
     });
   }
-
 </script>

@@ -1,0 +1,67 @@
+@import './variables.scss';
+
+.review__info-other {
+
+  // Latest verified
+  .review__latest {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $grey;
+    .review__latest-title {
+      background-color: #405771;
+      padding: 0;
+      width: 220px;
+      text-align: center;
+      span {
+        font-size: 20px;
+        line-height: 2;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #fff;
+      }
+    }
+  }
+
+  // Other landlords
+  .review__other-landlords {
+    h5 {
+      font-size: 24px;
+      span {
+        font-size: 24px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .review__other-landlords-ratings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    background-color: #CFEEFB;
+    > div {
+      display: flex;
+      justify-content: flex-start;
+      .review__other-ratings {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $main-blue;
+        font-size: 24px;
+        line-height: 24px;
+        width: 80px;
+        margin-right: 12px;
+        span {
+          color: #fff;
+        }
+      }
+      .review__other-name {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #000;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+// SASS is phasing out @import, replacing with @use
+// @use doesnt work yet, but if using for portfolio demos
+// Check this usage if you see styling is broken
+// Also ensure these imports come after the variable declarations from above
+@import './review-info-main.scss';
+@import './review-info-other.scss';
+@import './reviews.scss';
+
+.box-padding {
+  padding: 24px 24px;
+}
+
+.review__main-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
