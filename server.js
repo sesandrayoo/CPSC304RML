@@ -156,8 +156,22 @@ app.post('/createNewLLP', createProfile);
 app.get('/landlordProfile', (req, res) => {
     const { id } = req.query;
     const parsedId = parseInt(id, 10); // use this id
-    const response = {
-        name: 'Julia Smith',
+
+    let sql = `SELECT * FROM LandlordProfile WHERE profileID=${parsedId};
+    
+    SELECT propertyStreetAddress FROM Property P
+    LEFT OUTER JOIN Owns O ON O.propertyID=P.propertyID
+    LEFT OUTER JOIN LandlordProfile L ON O.profileID=L.profileID
+    WHERE L.profileID=${parsedId};
+    `;
+    console.log('QUERY*****************', sql);
+    db.query(sql, [0, 1],(err, results) => {
+      if (err) throw err;
+
+      console.log('results1**********', results[0][0].profileName);
+
+      const response = {
+        name: results[0][0].profileName,
         rating: 4.7,
         ratingCount: 244,
         location: 'Vancouver',
@@ -217,6 +231,9 @@ app.get('/landlordProfile', (req, res) => {
         }
     }
     res.render('./pages/landlordProfile', response);
+
+    });
+
     // res.render('./pages/landlordProfilePage', sampleResponse);
 })
 ////////////////////////////////////

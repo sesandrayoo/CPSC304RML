@@ -101,7 +101,7 @@ span, p {
 
 /******* createNewLLP.ejs styling *******/
 #create-new-LLP {
-  height: 100vh; }
+  height: 108vh; }
   #create-new-LLP #title {
     display: flex;
     justify-content: center;
@@ -112,7 +112,7 @@ span, p {
     margin: auto;
     width: 50%;
     margin-top: 1%;
-    height: 85%; }
+    height: 81%; }
     #create-new-LLP #form-outline form {
       margin: auto;
       padding: 6%; }

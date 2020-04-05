@@ -200,15 +200,18 @@ CREATE TABLE Review (
 	userID INT,
 	reviewText VARCHAR(1024),
     starRating INT,
+    profileID INT,
 	FOREIGN KEY (userID) REFERENCES 
-		User(userID)
+		User(userID),
+	FOREIGN KEY (profileID) REFERENCES 
+		LandlordProfile(profileID)
 	ON DELETE SET NULL
  );
 
 /*** Review: Insert ***/
-INSERT INTO Review (userID, reviewText, starRating) VALUES(3, 'BEST. LANDLORD. EVER. They are soooo personable and super understanding. Very responsive too.', 5);
-INSERT INTO Review (userID, reviewText, starRating)  VALUES(4, 'Pretty reasonable landlord.', 4);
-INSERT INTO Review (userID, reviewText, starRating)  VALUES(6, 'Holy moly this landlord is crap. If I could give a negative 10 stars I would.', 1);
+INSERT INTO Review (userID, reviewText, starRating, profileID) VALUES(3, 'BEST. LANDLORD. EVER. They are soooo personable and super understanding. Very responsive too.', 5, 1);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(4, 'Pretty reasonable landlord.', 4, 1);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(6, 'Holy moly this landlord is crap. If I could give a negative 10 stars I would.', 1, 2);
 
 
 /*********************************************/
