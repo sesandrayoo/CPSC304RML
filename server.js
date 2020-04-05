@@ -163,6 +163,8 @@ app.get('/landlordProfile', (req, res) => {
     LEFT OUTER JOIN Owns O ON O.propertyID=P.propertyID
     LEFT OUTER JOIN LandlordProfile L ON O.profileID=L.profileID
     WHERE L.profileID=${parsedId};
+
+    
     `;
     console.log('QUERY*****************', sql);
     db.query(sql, [0, 1],(err, results) => {
@@ -174,7 +176,7 @@ app.get('/landlordProfile', (req, res) => {
         name: results[0][0].profileName,
         rating: 4.7,
         ratingCount: 244,
-        location: 'Vancouver',
+        location: results[0][0].profileCity,
         managedProperties: [
             '1234 West 6th Avenue',
             '#410 - Megadoodoo Street',
