@@ -250,13 +250,31 @@ footer {
   align-items: center;
   flex-direction: column;
 
+  a {
+    text-decoration: none;
+    color: #eeeeee;
+    text-align: center;
+  }
+
   h1 {
     margin-top: 60px;
     color: #000000;
   }
 
+  button {
+    width: 100px;
+    height: 40px;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    background: #00a8e8;
+    color: #eeeeee;
+    font-size: 14px;
+    margin: 20px;
+  }
+
   .whole-container {
-    width: 35%;
+    width: 45%;
     display: flex;
     background: #3A3A3A;
     opacity: .8;
@@ -289,9 +307,9 @@ footer {
         width: 180px;
       }
 
-      #city,
       #bedrooms,
-      #bathrooms {
+      #bathrooms,
+      #min-price, #max-price {
         background: #ffffff;
         text-align: center;
       }
@@ -325,7 +343,7 @@ footer {
 .apartment-bg-image-postlisting {
   background: url(../globals/apartments.png) no-repeat center center fixed;
   background-size: cover;
-  height: 120vh;
+  height: 140vh;
   width: 100%;
 }
 
@@ -381,14 +399,28 @@ footer {
 }
 
 // Display Listings page
+.apartment-bg-image-listings {
+  height: 650vh;
+}
+
 #listings-container-outer {
   display: flex;
   align-items: center;
   flex-direction: column;
 
+  .btn{
+    margin-left: 140px;
+  }
+
   h1 {
     margin-top: 60px;
+    margin-bottom: 30px;
     color: #000000;
+  }
+
+  #matching-listing {
+    padding: 40px;
+    background: #cecece;
   }
 }
 
@@ -448,6 +480,31 @@ footer {
 
       #delete-account-btn {
         background: #d64646;
+      }
+    }
+  }
+}
+
+// Average price by area
+#avgPricePage {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    margin-top: 60px;
+    color: #000000;
+  }
+
+  #avgPrices {
+    background: #eeeeee;
+    width: 40vh;
+
+    section {
+      margin: 40px;
+
+      #avgp2 {
+        margin-left: 20px;
       }
     }
   }

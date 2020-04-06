@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%- include ('../partials/styling.ejs') %>
+</head>
+
+<body>
+  <%- include ('../partials/top-nav.ejs') %>
+
+  <div class="apartment-bg-image">
+    
+    <div class="container" id="avgPricePage">
+      
+      <h1>Average Price by Location</h1>
+
+      <div class="container" id="avgPrices">
+        <section id="avgPrices-inner" class="container">
+          <% if(avgPrices){ %>
+
+            <% for (var i = 0; i < avgPrices.length; i++) { %>
+            <p id=avgp1><%= avgPrices[i].listingArea %></p>
+            <p id=avgp2>$<%= avgPrices[i].avgPrice %></p>
+            <% } %>
+            <% } %>
+        </section>
+      </div>
+
+
+    </div>
+  
+  </div>
+
+
+  <%- include ('../partials/footer.ejs') %>
+</body>

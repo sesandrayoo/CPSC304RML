@@ -1,12 +1,14 @@
 const express = require('express');
 var db = require('./db');
 const bodyParser = require('body-parser');
-const {showAll, addUser} = require('./routes/sampleRoute');
-const {addNewUser} = require('./routes/signupRoute');
-const {addListing} = require('./routes/postlistingsRoute');
-const {searchResults, searchResultsProperty} = require('./routes/searchRoute');
+const { showAll, addUser } = require('./routes/sampleRoute');
+const { addNewUser } = require('./routes/signupRoute');
+const { addListing } = require('./routes/postlistingsRoute');
+const { searchResults, searchResultsProperty } = require('./routes/searchRoute');
 const { createProfile } = require("./routes/createNewLLPRoute");
 const { getLLP } = require("./routes/landlordProfileRoute");
+const { showAvgPrice } = require('./routes/priceByAreaRoute');
+const { searchListings } = require('./routes/searchListingsRoute');
 const connection = require('./db.js');
 
 const session = require('express-session');
@@ -50,8 +52,11 @@ app.get('/login', (req, res) => {
 app.post('/auth', (request, response) => {
     let username = request.body.username;
     let password = request.body.password;
+    let qry = (`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password]);
+    let userid = qry.userID;
+    console.log(userid);
     if (username && password) {
-        connection.query('SELECT * FROM user WHERE userName = ? AND userPassword = ?', [username, password], 
+        connection.query(`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password], 
         function(error, results, fields) {
         if (results.length > 0) {
           request.session.loggedin = true;
@@ -89,7 +94,6 @@ app.get('/account', (request, response) => {
 
   app.get('/accountDel', (request, response) => {
     let name = request.session.username;
-    console.log(name);
     request.session.loggedin = false;
     connection.query('DELETE FROM user WHERE userName = ?', [name], 
     function(error, results, fields) {
@@ -98,16 +102,11 @@ app.get('/account', (request, response) => {
         })
   })
 
-
 app.post('/account', (request, response) => {
     let username = request.body.newUsername;
     let about = request.body.newAbout;
     let type = request.body.newType;
-    console.log(username);
-    console.log(about);
-    console.log(type);
-    console.log(request.session.username);
-    console.log(request.session.userpassword);
+    console.log(request.session.userObj);
     connection.query('UPDATE user SET userName = ?, userAbout = ?, userType = ? WHERE userName = ? AND userPassword = ?', [username, about, type, request.session.username, request.session.userpassword], 
     function(error, results, fields) {
         if (error) throw error;
@@ -115,27 +114,25 @@ app.post('/account', (request, response) => {
     });
 })
 
-//search listing page
-app.get('/searchlisting', (req, res) => {
-    const sampleResponse = { title: 'RateMyLandlord searchlisting' }
-    res.render('./pages/searchlisting', sampleResponse);
+//************* searchListing page ********//
+app.get('/searchListing', (req, res) => {
+  const sampleResponse = { title: 'RateMyLandlord Search Listing' }
+  res.render('./pages/searchListing', sampleResponse);
 })
+app.post('/ListingSearchBody', searchListings);
 
-//listings page
-app.get('/listings', (req, res) => {
-    const sampleResponse = { title: 'RateMyLandlord listings' }
-    res.render('./pages/listings', sampleResponse);
-})
+//*********** priceByArea page **********//
+app.get('/priceByArea', showAvgPrice);
+//*****************************************//
 
-
-// postListing page
+//********* postListing page ************//
 app.get('/postListing', (req, res) => {
     const sampleResponse = { title: 'Post Listing page' }
     res.render('./pages/postListing', sampleResponse);
 })
-
 app.post('/signup', addNewUser);
 app.post('/postListing', addListing);
+//**************************************//
 
 
 //********** SEARCH BY SECTION *********//

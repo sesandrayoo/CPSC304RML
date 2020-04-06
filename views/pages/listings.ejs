@@ -4,39 +4,18 @@
 <head>
   <meta charset="utf-8">
   <%- include ('../partials/styling.ejs') %>
-  <title><%= title %></title>
 </head>
 
 <body>
   <%- include ('../partials/top-nav.ejs') %>
 
-  <div class="apartment-bg-image">
+  <div class="apartment-bg-image-listings">
     
     <div class="container" id="listings-container-outer">
       
       <h1>Rental Listings</h1>
 
-      
-      <!-- <section id="matching-listings" class="container">
-        <div class="listing">
-          <img src="" alt="">
-          <h3>3 bedroom basement apartment for rent</h3>
-          <p>Description of apartment</p>
-          <div class="specs">
-            <p>Bedrooms: <span></span></p>
-            <p>Bathrooms: <span></span></p>
-          </div>
-          <ul>
-            <li>Price: $1500</li>
-            <li><a href="#" class="btn btn-reverse">Contact Landlord</a></li>
-          </ul>
-        </div>
-      </section> -->
-
-      <section id="matching-listings" class="container">
-        <% if(listings){ %>
-
-          // DISPLAYING what is on the database
+      <section id="matching-listing" class="container">
           <% for (var i = 0; i < listings.length; i++) { %>
           <h3><%= listings[i].listingTitle %></h3>
           <h4><%= listings[i].listingArea %></h4>
@@ -50,7 +29,6 @@
             <li><a href="#" class="btn btn-reverse">Contact Landlord</a></li>
           </ul>
           <br>
-          <% } %>
           <% } %>
       </section>
 

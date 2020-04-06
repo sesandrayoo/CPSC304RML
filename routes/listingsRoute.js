@@ -1,27 +1,13 @@
 var db = require("../db");
+const connection = require('../db.js');
 
-// export routes so that they can be imported in the server.js
-module.exports = {
-    // GET endpoint 
-  showAll: (req, res) => {
-
-    let sql = "SELECT * FROM Listing";
-    db.query(sql, (err, results) => {
-      if (err) throw err;
-      console.log(results);
-
-      let testVar = [];
-
-      results.forEach(res => {
-        testVar.push(res);
-      });
-
-      // To be used in the .ejs
-      const sampleResponse = {
-        listings: testVar
-      };
-
-      res.render("./pages/listings", sampleResponse);
-    });
-  }
-};
+// // export routes so that they can be imported in the server.js
+// module.exports = {
+//   // GET endpoint 
+//   showListings: (request, response) => {
+//       connection.query('SELECT * FROM listing', 
+//       function(error, results, fields) {
+//           response.render('./pages/Listings', { listings: results });
+//       });
+//   }
+// };
