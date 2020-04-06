@@ -499,9 +499,12 @@ footer {
   #avgPrices {
     background: #eeeeee;
     width: 40vh;
+    display: flex;
 
     section {
-      margin: 40px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left: 100px;
 
       #avgp2 {
         margin-left: 20px;

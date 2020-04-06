@@ -362,8 +362,11 @@ footer {
     color: #000000; }
   #avgPricePage #avgPrices {
     background: #eeeeee;
-    width: 40vh; }
+    width: 40vh;
+    display: flex; }
     #avgPricePage #avgPrices section {
-      margin: 40px; }
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left: 100px; }
       #avgPricePage #avgPrices section #avgp2 {
         margin-left: 20px; }
