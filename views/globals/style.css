@@ -49,7 +49,7 @@ span, p {
   #search-body #search-btns {
     display: flex;
     justify-content: space-between;
-    width: 278px;
+    width: 350px;
     margin-top: -10px;
     padding: 10px; }
     #search-body #search-btns .btn-small {

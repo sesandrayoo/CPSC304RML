@@ -1,0 +1,61 @@
+$grey: #ededed;
+$main-blue: #00A8E8;
+$light-blue: #CFEEFB;
+
+.admin-reviews__table-header {
+  font-size: 40px;
+  color: #000;
+}
+.admin-reviews__list {
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .admin-reviews__list-headers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    .admin-reviews__list-header {
+      text-align: center;
+    }
+  }
+  .admin-reviews__list-review {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    background-color: $light-blue;
+    padding: 5px 0;
+    &:first-child {
+      padding-top: 20px;
+    }
+    .admin-reviews__list-review-item {
+      text-align: center;
+    }
+    button {
+      background-color: #07294E;
+      color: #fff;
+      font-size: 18px;
+      line-height: 18px;
+      padding: 10px 20px;
+      border: none;
+      outline: none;
+      transition: all 250ms ease-in;
+      &:hover {
+        cursor: pointer;
+        color: #07294E;
+        background-color: #fff;
+      }
+      &.verified {
+        background-color: #fff;
+        color: #07294E;
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+}
+
+.admin-reviews__verified {
+  margin: 20px 0 40px 0;
+}

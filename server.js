@@ -10,11 +10,11 @@ const { getLLP } = require("./routes/landlordProfileRoute");
 const { showAvgPrice } = require('./routes/priceByAreaRoute');
 const { searchListings } = require('./routes/searchListingsRoute');
 const { addReview, submitReview } = require("./routes/addReviewRoute");
+const { showAdmin, updateReview } = require("./routes/adminRoutes");
 const connection = require('./db.js');
 
 const session = require('express-session');
 const path = require('path');
-
 
 const app = express(); 
 app.set('views', `${__dirname}/views`)
@@ -173,16 +173,53 @@ app.get('/success', (req, res, next) => {
   
 });
 //***************************************//
-//**********  SAMPLE SECTION *********//
-/* import the endpoints */
-app.get('/samplePage', showAll);
-app.post('/samplePage', addUser);
+
+//********** ADMIN PANEL ****************//
+app.get('/admin-panel', showAdmin);
+app.post('/verify-review', updateReview)
+//***************************************//
+
+//********** SUPER LL****************//
+app.get('/superLandlords', (req, res) => {
+  console.log('here');
+
+  let sql = `SELECT DISTINCT landlordprofile.profileName
+    FROM landlordprofile
+    WHERE NOT EXISTS (
+    SELECT * FROM municipality AS city
+    WHERE NOT EXISTS (
+      SELECT * FROM landlordprofile AS landlords_2
+      WHERE (landlords_2.profileName = landlordprofile.profileName)
+      AND (city.propertyCity = landlords_2.profileCity)));`;
+
+      db.query(sql, (err, results) => {
+        if (err) throw err;
+  
+        let testVar = [];
+  
+        results.forEach(res => {
+          testVar.push(res);
+        });
+
+          const divisionResult = {
+            values: testVar
+          };
+          res.render('./pages/superLL.ejs', divisionResult);
+
+      })
+
+});
 //***************************************//
 
 
 
 
 
+//**********  TEMPLATE SECTION *********//
+/* import the endpoints */
+app.get('/samplePage', showAll);
+app.post('/samplePage', addUser);
+//***************************************//
 
 
 

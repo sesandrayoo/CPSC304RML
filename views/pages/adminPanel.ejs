@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%- include ('../partials/styling.ejs') %>
+  <link rel="stylesheet" href="../globals/adminPanel.css">
+</head>
+
+<body>
+  <!-- example of how to include header -->
+  <%- include ('../partials/top-nav.ejs') %>
+
+  <div class="container">
+    <div class="admin-reviews__unverified">
+      <div>
+        <h1 class="admin-reviews__table-header">
+          Unverified Reviews
+        </h1>
+      </div>
+      <div class="divider"></div>
+      <div class="admin-reviews__list">
+        <div class="admin-reviews__list-headers">
+          <% for (let i = 0; i < headers.length; i++) { %>
+            <div class="admin-reviews__list-header">
+              <h2>
+                <%= headers[i] %>
+              </h2>
+            </div>
+          <% } %>
+        </div>
+        <div class="admin-reviews__list-content">
+          <iframe
+            name="hiddenFrameUnverified"
+            width="0"
+            height="0"
+            border="0"
+            style="display: none;"
+          >
+          </iframe>
+          <% for (let i = 0; i < unverifiedReviews.length; i++) { %>
+            <% 
+              const {
+                reviewID,
+                createdDate,
+                admin
+              } = unverifiedReviews[i]; 
+            %>
+            <form
+              action="/verify-review"
+              method="POST"
+              target="hiddenFrameUnverified"
+            >
+              <div class="admin-reviews__list-review">
+                <div class="admin-reviews__list-review-item">
+                  <input type="hidden" name="reviewId" value="<%= reviewID %>" />
+                  <span>
+                    <%= reviewID %>
+                  </span>
+                </div>
+                <div class="admin-reviews__list-review-item">
+                  <span>
+                    <%= createdDate %>
+                  </span>
+                </div>
+                <div class="admin-reviews__list-review-item">
+                  <span>
+                    <%= admin %>
+                  </span>
+                </div>
+                <div class="admin-reviews__list-review-item">
+                  <button type="submit" data-id="<%= reviewID %>">
+                    VERIFY
+                  </button>
+                </div>
+              </div>
+            </form>
+          <% } %>
+        </div>
+      </div>
+
+      <!-- Verified -->
+      <div class="admin-reviews__verified">
+        <div>
+          <h1 class="admin-reviews__table-header">
+            Verified Reviews
+          </h1>
+        </div>
+        <div class="divider"></div>
+        <div class="admin-reviews__list">
+          <div class="admin-reviews__list-headers">
+            <% for (let i = 0; i < headers.length; i++) { %>
+              <div class="admin-reviews__list-header">
+                <h2>
+                  <%= headers[i] %>
+                </h2>
+              </div>
+            <% } %>
+          </div>
+          <div class="admin-reviews__list-content">
+            <% for (let i = 0; i < verifiedReviews.length; i++) { %>
+              <% 
+                const {
+                  reviewID,
+                  createdDate,
+                  reviewDate,
+                  admin
+                } = verifiedReviews[i]; 
+              %>
+              <div class="admin-reviews__list-review">
+                <div class="admin-reviews__list-review-item">
+                  <input type="hidden" name="reviewId" value="<%= reviewID %>" />
+                  <span>
+                    <%= reviewID %>
+                  </span>
+                </div>
+                <div class="admin-reviews__list-review-item">
+                  <span>
+                    <%= createdDate %>
+                  </span>
+                </div>
+                <div class="admin-reviews__list-review-item">
+                  <span>
+                    <%= reviewDate %>
+                  </span>
+                </div>
+                <div class="admin-reviews__list-review-item">
+                  <span>
+                    <%= admin %>
+                  </span>
+                </div>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- example of how to include footer -->
+  <%- include ('../partials/footer.ejs') %>
+</body>
+<script>
+  const waitForjQuery = setInterval(() => {
+    if (window.jQuery) {
+      clearInterval(waitForjQuery);
+      console.log('waited')
+      const $ = jQuery;
+      $('form').on('submit', (e) => {
+        e.preventDefault();
+        const selectedReviewID = $(e.target).find('input').val();
+        const data = JSON.stringify({
+          reviewId: selectedReviewID
+        })
+        $.ajax({
+          url: '/verify-review',
+          type: 'POST',
+          contentType: 'application/json',
+          dataType: 'json',
+          data: data,
+          success: (response) => {
+            $(`button[data-id="${selectedReviewID}"]`)
+            .text('VERIFIED')
+            .addClass('verified');
+          }
+        })
+      });
+    }
+  }, 250);
+  
+</script>

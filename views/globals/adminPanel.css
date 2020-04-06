@@ -1,0 +1,46 @@
+.admin-reviews__table-header {
+  font-size: 40px;
+  color: #000; }
+
+.admin-reviews__list h2 {
+  font-size: 20px;
+  font-weight: bold; }
+
+.admin-reviews__list .admin-reviews__list-headers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px; }
+  .admin-reviews__list .admin-reviews__list-headers .admin-reviews__list-header {
+    text-align: center; }
+
+.admin-reviews__list .admin-reviews__list-review {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  background-color: #CFEEFB;
+  padding: 5px 0; }
+  .admin-reviews__list .admin-reviews__list-review:first-child {
+    padding-top: 20px; }
+  .admin-reviews__list .admin-reviews__list-review .admin-reviews__list-review-item {
+    text-align: center; }
+  .admin-reviews__list .admin-reviews__list-review button {
+    background-color: #07294E;
+    color: #fff;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    transition: all 250ms ease-in; }
+    .admin-reviews__list .admin-reviews__list-review button:hover {
+      cursor: pointer;
+      color: #07294E;
+      background-color: #fff; }
+    .admin-reviews__list .admin-reviews__list-review button.verified {
+      background-color: #fff;
+      color: #07294E; }
+      .admin-reviews__list .admin-reviews__list-review button.verified:hover {
+        cursor: default; }
+
+.admin-reviews__verified {
+  margin: 20px 0 40px 0; }
