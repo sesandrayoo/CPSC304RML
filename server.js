@@ -54,6 +54,7 @@ app.post('/auth', (request, response) => {
     let password = request.body.password;
     let qry = (`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password]);
     let userid = qry.userID;
+    console.log(userid);
     if (username && password) {
         connection.query(`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password], 
         function(error, results, fields) {
@@ -118,7 +119,7 @@ app.get('/searchListing', (req, res) => {
   const sampleResponse = { title: 'RateMyLandlord Search Listing' }
   res.render('./pages/searchListing', sampleResponse);
 })
-app.get('/ListingSearchBody', searchListings);
+app.post('/ListingSearchBody', searchListings);
 
 //*********** priceByArea page **********//
 app.get('/priceByArea', showAvgPrice);
