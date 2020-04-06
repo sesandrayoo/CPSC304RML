@@ -1,0 +1,83 @@
+.write-review-header {
+  text-align: center;
+  color: #000;
+  margin: 40px 0; }
+
+.write-section {
+  background-color: #CFEEFB; }
+  .write-section .write-section__landlord {
+    margin: 0 auto;
+    padding: 40px 0;
+    text-align: center; }
+    .write-section .write-section__landlord > h2 {
+      font-size: 30px; }
+  .write-section .write-section__entry > div:first-child {
+    padding-bottom: 20px; }
+    .write-section .write-section__entry > div:first-child > label {
+      font-size: 28px;
+      color: #000; }
+  .write-section .write-section__entry-container {
+    padding: 0 0 20px 0; }
+    .write-section .write-section__entry-container textarea#review-entry {
+      background-color: #fff;
+      border: none;
+      outline: none;
+      height: auto;
+      width: 100%;
+      font-size: 24px;
+      letter-spacing: 0.6px; }
+  .write-section .write-section__rating-container {
+    padding: 24px 0;
+    display: flex; }
+    .write-section .write-section__rating-container .write-section__helper-text {
+      margin-right: 48px; }
+      .write-section .write-section__rating-container .write-section__helper-text p {
+        font-size: 28px;
+        line-height: 1.5;
+        margin: 0; }
+    .write-section .write-section__rating-container .write-section__rating {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-column-gap: 24px; }
+      .write-section .write-section__rating-container .write-section__rating .rating-block {
+        background-color: #00A8E8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        transition: background-color 200ms ease-in; }
+        .write-section .write-section__rating-container .write-section__rating .rating-block:hover {
+          cursor: pointer;
+          background-color: #fff; }
+          .write-section .write-section__rating-container .write-section__rating .rating-block:hover span {
+            color: #00A8E8; }
+        .write-section .write-section__rating-container .write-section__rating .rating-block.clicked {
+          background-color: #fff; }
+          .write-section .write-section__rating-container .write-section__rating .rating-block.clicked span {
+            color: #000;
+            font-weight: bold; }
+        .write-section .write-section__rating-container .write-section__rating .rating-block span {
+          font-size: 28px;
+          color: #fff;
+          transition: color 200ms ease-in; }
+  .write-section .write-section__submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0 60px 0; }
+    .write-section .write-section__submit button > div {
+      display: flex; }
+      .write-section .write-section__submit button > div > div {
+        display: flex;
+        align-items: center; }
+        .write-section .write-section__submit button > div > div:first-child {
+          margin-right: 6px; }
+
+.write-review__error-message {
+  color: red;
+  display: none;
+  margin-top: 12px;
+  font-size: 26px; }
+  .write-review__error-message.show {
+    display: block; }

@@ -9,6 +9,7 @@ const { createProfile } = require("./routes/createNewLLPRoute");
 const { getLLP } = require("./routes/landlordProfileRoute");
 const { showAvgPrice } = require('./routes/priceByAreaRoute');
 const { searchListings } = require('./routes/searchListingsRoute');
+const { addReview, submitReview } = require("./routes/addReviewRoute");
 const connection = require('./db.js');
 
 const session = require('express-session');
@@ -156,6 +157,20 @@ app.get('/landlordProfile', getLLP);
 //***************************************//
 
 
+//**********  ADD REVIEW SECTION *********//
+app.get('/add-review', addReview);
+app.post('/submitReview', submitReview);
+//***************************************//
+
+//********** SUCCESS REVIEW ****************//
+app.get('/success', (req, res, next) => {
+  const searchResults = {
+    values: "Reviews"
+  };
+  res.render("./pages/success", searchResults);
+  
+});
+//***************************************//
 //**********  SAMPLE SECTION *********//
 /* import the endpoints */
 app.get('/samplePage', showAll);
@@ -168,34 +183,12 @@ app.post('/samplePage', addUser);
 
 
 
-/////// QUERIES /////////
 
 
 app.post("/searchlisting/submit", (req, res, next) => {
   res.redirect(".pages/listings");
 });
 
-// EXAMPLE Update post
-app.get("/updatepost/:id", (req, res) => {
-  let newTitle = "Updated Title";
-  let sql = `UPDATE posts SET title = '${newTitle}' WHERE id = ${req.params.id}`;
-  let query = db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send("Post updated...");
-  });
-});
-
-// EXAMPLE Delete post
-app.get("/deletepost/:id", (req, res) => {
-  let newTitle = "Updated Title";
-  let sql = `DELETE FROM posts WHERE id = ${req.params.id}`;
-  let query = db.query(sql, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-    res.send("Post deleted...");
-  });
-});
 
 app.listen("3000", () => {
   console.log("Server started on port 3000");
