@@ -191,11 +191,25 @@ footer {
   display: flex;
   align-items: center;
   flex-direction: column; }
+  #search-listings-body a {
+    text-decoration: none;
+    color: #eeeeee;
+    text-align: center; }
   #search-listings-body h1 {
     margin-top: 60px;
     color: #000000; }
+  #search-listings-body button {
+    width: 100px;
+    height: 40px;
+    border: none;
+    display: inline-block;
+    text-decoration: none;
+    background: #00a8e8;
+    color: #eeeeee;
+    font-size: 14px;
+    margin: 20px; }
   #search-listings-body .whole-container {
-    width: 35%;
+    width: 45%;
     display: flex;
     background: #3A3A3A;
     opacity: .8;
@@ -219,9 +233,9 @@ footer {
         margin: 10px;
         margin-top: 15px;
         width: 180px; }
-      #search-listings-body .whole-container .left-container #city,
       #search-listings-body .whole-container .left-container #bedrooms,
-      #search-listings-body .whole-container .left-container #bathrooms {
+      #search-listings-body .whole-container .left-container #bathrooms,
+      #search-listings-body .whole-container .left-container #min-price, #search-listings-body .whole-container .left-container #max-price {
         background: #ffffff;
         text-align: center; }
       #search-listings-body .whole-container .left-container .slider {
@@ -244,7 +258,7 @@ footer {
 .apartment-bg-image-postlisting {
   background: url(../globals/apartments.png) no-repeat center center fixed;
   background-size: cover;
-  height: 120vh;
+  height: 140vh;
   width: 100%; }
 
 #post-listings-body {
@@ -283,13 +297,22 @@ footer {
     font-size: 24px;
     margin: 30px; }
 
+.apartment-bg-image-listings {
+  height: 650vh; }
+
 #listings-container-outer {
   display: flex;
   align-items: center;
   flex-direction: column; }
+  #listings-container-outer .btn {
+    margin-left: 140px; }
   #listings-container-outer h1 {
     margin-top: 60px;
+    margin-bottom: 30px;
     color: #000000; }
+  #listings-container-outer #matching-listing {
+    padding: 40px;
+    background: #cecece; }
 
 #accountContent {
   display: flex;
@@ -329,3 +352,18 @@ footer {
         margin-left: 32%; }
       #accountContent .container #account-info-update #delete-account-btn {
         background: #d64646; }
+
+#avgPricePage {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  #avgPricePage h1 {
+    margin-top: 60px;
+    color: #000000; }
+  #avgPricePage #avgPrices {
+    background: #eeeeee;
+    width: 40vh; }
+    #avgPricePage #avgPrices section {
+      margin: 40px; }
+      #avgPricePage #avgPrices section #avgp2 {
+        margin-left: 20px; }

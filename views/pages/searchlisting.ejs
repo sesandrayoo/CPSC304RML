@@ -17,7 +17,6 @@
       <div class="whole-container">
 
         <div class="right-container">
-          <p>Your City</p>
           <p>Number of Bedrooms</p>
           <p>Number of Bathrooms</p>
           <p>Minimum Price</p>
@@ -25,17 +24,19 @@
         </div>
 
         <div class="left-container">
-          <form action="/listings" method="get">
-            <input type="text" placeholder="city name" id="city" required>
-            <input type="number" placeholder="bedrooms" id="bedrooms" required>
-            <input type="number" placeholder="bathrooms" id="bathrooms" required>
-            <input type="range" min="0" max="10000" value="500" class="slider" step="50" id="min-price">
-            <input type="range" min="1" max="10000" value="500" class="slider" step="50" id="max-price">
+          <form action="/listingSearchBody" method="get">
+            <input type="number" placeholder="bedrooms" name="bedrooms" id="bedrooms" required>
+            <input type="number" placeholder="bathrooms" name="bathrooms" id="bathrooms" required>
+            <input type="number" placeholder="Minimum Price" name="minPrice" id="min-price" required>
+            <input type="number" placeholder="Maximum Price" name="maxPrice" id="max-price" required>
             <button type="submit" id="search-listing-btn" class="listing-sub-btn" value="submit">Search</button>
           </form>
         </div>
 
       </div>
+      <form action="/filterbyAreaAvgPrice" method="submit">
+        <button type="submit" class="button" id="avgListingPriceBtn"><a href="/priceByArea">Price by Area</button>
+      </form>
     </div>
 
   </div>

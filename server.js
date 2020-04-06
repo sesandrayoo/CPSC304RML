@@ -1,12 +1,14 @@
 const express = require('express');
 var db = require('./db');
 const bodyParser = require('body-parser');
-const {showAll, addUser} = require('./routes/sampleRoute');
-const {addNewUser} = require('./routes/signupRoute');
-const {addListing} = require('./routes/postlistingsRoute');
-const {searchResults, searchResultsProperty} = require('./routes/searchRoute');
+const { showAll, addUser } = require('./routes/sampleRoute');
+const { addNewUser } = require('./routes/signupRoute');
+const { addListing } = require('./routes/postlistingsRoute');
+const { searchResults, searchResultsProperty } = require('./routes/searchRoute');
 const { createProfile } = require("./routes/createNewLLPRoute");
 const { getLLP } = require("./routes/landlordProfileRoute");
+const { showAvgPrice } = require('./routes/priceByAreaRoute');
+const { searchListings } = require('./routes/searchListingsRoute');
 const connection = require('./db.js');
 
 const session = require('express-session');
@@ -99,7 +101,6 @@ app.get('/account', (request, response) => {
         })
   })
 
-
 app.post('/account', (request, response) => {
     let username = request.body.newUsername;
     let about = request.body.newAbout;
@@ -112,27 +113,25 @@ app.post('/account', (request, response) => {
     });
 })
 
-//search listing page
-app.get('/searchlisting', (req, res) => {
-    const sampleResponse = { title: 'RateMyLandlord searchlisting' }
-    res.render('./pages/searchlisting', sampleResponse);
+//************* searchListing page ********//
+app.get('/searchListing', (req, res) => {
+  const sampleResponse = { title: 'RateMyLandlord Search Listing' }
+  res.render('./pages/searchListing', sampleResponse);
 })
+app.get('/ListingSearchBody', searchListings);
 
-//listings page
-app.get('/listings', (req, res) => {
-    const sampleResponse = { title: 'RateMyLandlord listings' }
-    res.render('./pages/listings', sampleResponse);
-})
+//*********** priceByArea page **********//
+app.get('/priceByArea', showAvgPrice);
+//*****************************************//
 
-
-// postListing page
+//********* postListing page ************//
 app.get('/postListing', (req, res) => {
     const sampleResponse = { title: 'Post Listing page' }
     res.render('./pages/postListing', sampleResponse);
 })
-
 app.post('/signup', addNewUser);
 app.post('/postListing', addListing);
+//**************************************//
 
 
 //********** SEARCH BY SECTION *********//
