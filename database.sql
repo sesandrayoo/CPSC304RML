@@ -198,7 +198,6 @@ INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, 
 INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBedrooms, listingBathrooms, listingPrice) VALUES(5, 'Condo in quiet area', 'Point Grey', 'mountain views and quiet', '2', '2', '3500');
 INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBedrooms, listingBathrooms, listingPrice) VALUES(7, 'New apartment above garage', 'Point Grey', 'newly done, 2 bedrooms - very large', '2', '1', '2200');
 INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBedrooms, listingBathrooms, listingPrice) VALUES(8, '2bd in Hip Neighborhood!', 'East Van', 'close to commercial. lots of Cafes and restaurants within walking distance', '2', '1', '1450');
-INSERT INTO Listing (uploaderID, listingTitle, listingArea, listingDescription, listingBedrooms, listingBathrooms, listingPrice) VALUES(9, 'Large 3bdr first floor apartment', 'East Van', 'charming old house with lower and upper apartment. Great landlords.', '3', '1', '1900');
 
 
 /*********************************************/
