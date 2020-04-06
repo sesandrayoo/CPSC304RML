@@ -183,14 +183,15 @@ app.post('/verify-review', updateReview)
 app.get('/superLandlords', (req, res) => {
   console.log('here');
 
-  let sql = `SELECT DISTINCT landlordprofile.profileName
-    FROM landlordprofile
-    WHERE NOT EXISTS (
-    SELECT * FROM municipality AS city
-    WHERE NOT EXISTS (
-      SELECT * FROM landlordprofile AS landlords_2
-      WHERE (landlords_2.profileName = landlordprofile.profileName)
-      AND (city.propertyCity = landlords_2.profileCity)));`;
+  let sql = `SELECT DISTINCT review.userID
+  FROM review
+  WHERE NOT EXISTS (
+    SELECT * FROM landlordprofile AS landlords
+      WHERE NOT EXISTS (
+      SELECT * FROM review AS review_2
+          WHERE (review_2.userID = review.userID)
+          AND (landlords.profileID = review_2.profileID)));
+  `;
 
       db.query(sql, (err, results) => {
         if (err) throw err;

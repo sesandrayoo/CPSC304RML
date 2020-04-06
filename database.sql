@@ -234,7 +234,9 @@ INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(4, 'Great
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Bad experience.', 1, 4);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Took my money!!! what a scam!', 1, 5);
 INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Friendly guy, but he seems really stuck up and arrogant. If you can handle that kind of thing', 3, 1);
-
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Good person! lovely to talk to.', 5, 2);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Bad landlord avoid at all costs!!!.', 1, 3);
+INSERT INTO Review (userID, reviewText, starRating, profileID)  VALUES(7, 'Bad experience.', 1, 6);
 
 
 /*********************************************/
@@ -260,6 +262,9 @@ INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUE
 INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(6, 1, 1, 'contracts');
 INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(7, 1, 0, 'contracts');
 INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(8, 2, 0, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(9, 2, 0, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(10, 2, 0, 'contracts');
+INSERT INTO Verification (reviewID, adminID, verificationStatus, document) VALUES(11, 2, 0, 'contracts');
 
 /*********************************************/
 /************** VERIFICATION_LOG (claims sub-table) *****************/
@@ -279,8 +284,12 @@ INSERT INTO Verification_Log VALUES(3, '2020-06-20');
 INSERT INTO Verification_Log VALUES(4, '2020-04-20');
 INSERT INTO Verification_Log VALUES(5, '2019-05-20');
 INSERT INTO Verification_Log VALUES(6, '2019-02-20');
-INSERT INTO Verification_Log VALUES(7, '2019-10-23');
+INSERT INTO Verification_Log VALUES(7, '2019-10-13');
 INSERT INTO Verification_Log VALUES(8, '2019-11-28');
+INSERT INTO Verification_Log VALUES(9, '2019-05-21');
+INSERT INTO Verification_Log VALUES(10, '2019-02-22');
+INSERT INTO Verification_Log VALUES(11, '2019-10-23');
+
 
 
 /*********************************************/
