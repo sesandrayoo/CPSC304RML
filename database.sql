@@ -94,6 +94,7 @@ INSERT INTO LandlordProfile (profileName, profileCity, userID) VALUES('Creed Bra
 INSERT INTO LandlordProfile (profileName, profileCity, userID) VALUES('Bob Vance', 'Vancouver', 4);
 INSERT INTO LandlordProfile (profileName, profileCity, userID) VALUES('David Smith', 'Victoria', 7);
 
+
 /************************************************************/
 /********* MUNICIPALITY TABLE (sub table of property) *******/
 /************************************************************/
@@ -109,6 +110,8 @@ INSERT INTO Municipality VALUES('V8G1H9', 'Victoria');
 INSERT INTO Municipality VALUES('V3Z5K3', 'Vancouver');
 INSERT INTO Municipality VALUES('V3S6H2', 'Vancouver');
 INSERT INTO Municipality VALUES('V3Q3D6', 'Vancouver');
+INSERT INTO Municipality VALUES('1234', 'Vancouver');
+INSERT INTO Municipality VALUES('5678', 'Victoria');
 
 /************************************************************/
 /********* PROPERTY LOCATION TABLE (sub table of property) **/
@@ -127,6 +130,8 @@ INSERT INTO PropertyLocation VALUES('3312 Agar Street', 'V3S6H2');
 INSERT INTO PropertyLocation VALUES('1234 West 6th Ave', 'V8G3G5');
 INSERT INTO PropertyLocation VALUES('987 Sesame Street', 'V8G1H9');
 INSERT INTO PropertyLocation VALUES('456 2nd Ave', 'V3Q3D6');
+INSERT INTO PropertyLocation VALUES('23 Scranton Street', '1234');
+INSERT INTO PropertyLocation VALUES('234 Drawer Blvd.', '5678');
 
 
 /*******************************************/
@@ -148,6 +153,8 @@ INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) 
 INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('1234 West 6th Ave', 'FAMILY TOWNHOUSE. Close to schools.','townhouse');
 INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('987 Sesame Street', 'Close to skytrain. Kinda old.','detached house');
 INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('3312 Agar Street', 'Bright place. Pets allowed!','townhouse');
+INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('23 Scranton Street', 'neat','townhouse');
+INSERT INTO Property (propertyStreetAddress, propertyDescription, propertyType) VALUES('234 Drawer Blvd.', 'ok','townhouse');
 
 
 /*************************************/
@@ -171,6 +178,8 @@ INSERT INTO Owns VALUES(1,2);
 INSERT INTO Owns VALUES(4,3);
 INSERT INTO Owns VALUES(3,4);
 INSERT INTO Owns VALUES(5,5);
+INSERT INTO Owns VALUES(1,6);
+INSERT INTO Owns VALUES(1,7);
 
 /****************************************/
 /************** LISTING *****************/
