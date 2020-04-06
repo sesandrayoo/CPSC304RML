@@ -72,12 +72,10 @@ module.exports = {
         otherLandlords.push(ll);
       });
 
-      console.log('reviewArray', reviewArray);
-      
       const response = {
         id: parsedId,
         name: results[0][0].profileName,
-        rating: results[2][0].averageRating,
+        rating: Number((results[2][0].averageRating).toFixed(1)),
         ratingCount: results[2][0].numOfRatings,
         location: results[0][0].profileCity,
         managedProperties: propertyArray,
