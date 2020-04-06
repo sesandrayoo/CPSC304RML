@@ -52,13 +52,16 @@ app.get('/login', (req, res) => {
 app.post('/auth', (request, response) => {
     let username = request.body.username;
     let password = request.body.password;
-    let qry = (`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password]);
-    let userid = qry.userID;
-    console.log(userid);
+    let useridQry = `SELECT userID FROM user WHERE userName = '${username}' AND userPassword = '${password}';`;
+    let userid;
+    db.query(useridQry, (err, results) => {
+      userid = results[0].userID;
+    });
     if (username && password) {
         connection.query(`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password], 
         function(error, results, fields) {
         if (results.length > 0) {
+          request.session.userid = userid;
           request.session.loggedin = true;
           request.session.username = username;
           request.session.userpassword = password;
@@ -83,19 +86,18 @@ app.get('/signup', (req, res) => {
 // Account page
 app.get('/account', (request, response) => {
     if (request.session.loggedin) {
-        connection.query('SELECT * FROM user WHERE userName = ?', [request.session.username], 
-        function(error, results, fields) {
-            response.render('./pages/account', { account: results[0] });
-        });
+      connection.query('SELECT * FROM user WHERE userID = ?', [request.session.userid], 
+      function(error, results, fields) {
+          response.render('./pages/account', { account: results[0] });
+      });
     } else {
         response.redirect('/login');
     }
   })
 
   app.get('/accountDel', (request, response) => {
-    let name = request.session.username;
     request.session.loggedin = false;
-    connection.query('DELETE FROM user WHERE userName = ?', [name], 
+    connection.query('DELETE FROM user WHERE userID = ?', [request.session.userid], 
     function(error, results, fields) {
         if (error) throw error;
         response.render('./pages/index');
@@ -106,8 +108,7 @@ app.post('/account', (request, response) => {
     let username = request.body.newUsername;
     let about = request.body.newAbout;
     let type = request.body.newType;
-    console.log(request.session.userObj);
-    connection.query('UPDATE user SET userName = ?, userAbout = ?, userType = ? WHERE userName = ? AND userPassword = ?', [username, about, type, request.session.username, request.session.userpassword], 
+    connection.query('UPDATE user SET userName = ?, userAbout = ?, userType = ? WHERE userID = ?', [username, about, type, request.session.userid], 
     function(error, results, fields) {
         if (error) throw error;
         response.render('./pages/index');
