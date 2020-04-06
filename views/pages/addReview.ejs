@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <%- include ('../partials/styling.ejs') %>
+  <link rel="stylesheet" href="../globals/addReview.css">
+</head>
+
+<body>
+  <!-- example of how to include header -->
+  <%- include ('../partials/top-nav.ejs') %>
+
+  <div class="container">
+    <h1 class="write-review-header">Write A Review</h1>
+  </div>
+
+  <div class="write-section">
+    <div class="container">
+      <!-- Header -->
+      <div class="write-section__landlord">
+        <h2>
+          Landlord Name: <b><%= landlordName %></b>
+        </h2>
+      </div>
+
+      <!-- Entry section-->
+      <div class="write-section__entry">
+        <div>
+          <label for="review-entry">Review: </label>
+        </div>
+        <div class="write-section__entry-container">
+          <textarea id="review-entry" wrap="hard" rows="10" required></textarea>
+        </div>
+      </div>
+
+      <!-- Rating section-->
+      <div class="write-section__rating-container">
+        <div class="write-section__helper-text">
+          <p>Rating (out of 5):</p>
+        </div>
+        <div class="write-section__rating">
+          <% for (let i = 1; i <= ratingTotal; i++) { %>
+          <div class="rating-block" data-rating="<%= i %>">
+            <span><%= i %></span>
+          </div>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="write-section__submit">
+        <button id="submitReview" class="btn waves-effect waves-light" type="button">
+          <div>
+            <div>
+              <span>SUBMIT</span>
+            </div>
+            <div class="icon-container">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="18px" height="18px">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                <path d="M0 0h24v24H0z" fill="none" />
+              </svg>
+            </div>
+          </div>
+        </button>
+        <div class="write-review__error-message">
+          There is no review to submit!
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- example of how to include footer -->
+  <%- include ('../partials/footer.ejs') %>
+</body>
+<script>
+  const ratingBlocks = document.querySelectorAll('.rating-block');
+  // Adds clicked class to selected rating
+  ratingBlocks.forEach((block) => {
+    block.addEventListener('click', () => {
+      document.querySelector('.clicked') && document.querySelector('.clicked').classList.remove('clicked')
+      block.classList.add('clicked');
+    })
+  })
+  
+  document.querySelector('#submitReview').addEventListener('click', () => {
+    // Rating is the selected rating. If it's not selected, it's 0
+    const rating = document.querySelector('.clicked')
+      ? document.querySelector('.clicked').getAttribute('data-rating')
+      : 0
+
+    const reviewText = document.querySelector('.write-section__entry-container textarea').value;
+
+    // Add error msg if review text is empty
+    if (!reviewText.length) {
+      document
+        .querySelector('.write-review__error-message')
+        .classList
+        .add('show');
+      return;
+    }
+
+    // Remove error message if review text exists, then submit
+    document
+      .querySelector('.write-review__error-message')
+      .classList
+      .remove('show');
+
+
+    const landlordNameVar = <%- JSON.stringify(landlordName) %>;
+
+    const data = JSON.stringify({
+      rating: rating,
+      reviewText: reviewText,
+      profileName: landlordNameVar
+    })
+    
+    $.ajax({
+      url: '/submitReview',
+      type: 'POST',
+      contentType: 'application/json',
+      dataType: 'json',
+      data: data,
+      success: function (json, status, request) {
+        window.location.href = '/success'
+        console.log(status);
+      }, //end of success
+      error: function (data, request, status, error) {
+        console.log(status);
+        console.log('submission in server did not work')
+      }//end of error
+    });
+
+  });
+</script>

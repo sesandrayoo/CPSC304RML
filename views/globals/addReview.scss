@@ -1,0 +1,115 @@
+$grey: #ededed;
+$main-blue: #00A8E8;
+$light-blue: #CFEEFB;
+
+.write-review-header {
+  text-align: center;
+  color: #000;
+  margin: 40px 0;
+}
+.write-section {
+  background-color: $light-blue;
+  .write-section__landlord {
+    margin: 0 auto;
+    padding: 40px 0;
+    text-align: center;
+    > h2 {
+      font-size: 30px;
+    }
+  }
+  .write-section__entry {
+    > div:first-child {
+      padding-bottom: 20px;
+      > label {
+        font-size: 28px;
+        color: #000;
+      }
+    }
+  }
+  .write-section__entry-container {
+    padding: 0 0 20px 0;
+    textarea#review-entry {
+      background-color: #fff;
+      border: none;
+      outline: none;
+      height: auto;
+      width: 100%;
+      font-size: 24px;
+      letter-spacing: 0.6px;
+    }
+  }
+  .write-section__rating-container {
+    padding: 24px 0;
+    display: flex;
+    
+    .write-section__helper-text {
+      margin-right: 48px;
+      p {
+        font-size: 28px;
+        line-height: 1.5;
+        margin: 0;
+      }
+    }
+    .write-section__rating {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-column-gap: 24px;
+      .rating-block {
+        background-color: $main-blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        transition: background-color 200ms ease-in;
+        &:hover {
+          cursor: pointer;
+          background-color: #fff;
+          span {
+            color: $main-blue;
+          }
+        }
+        &.clicked {
+          background-color: #fff;
+          span {
+            color: #000;
+            font-weight: bold;
+          }
+        }
+        span {
+          font-size: 28px;
+          color: #fff;
+          transition: color 200ms ease-in;
+        }
+      }
+    }
+  }
+  .write-section__submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0 60px 0;
+    button {
+      > div {
+        display: flex;
+        > div {
+          &:first-child {
+            margin-right: 6px;
+          }
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+
+.write-review__error-message {
+  color: red;
+  display: none;
+  margin-top: 12px;
+  font-size: 26px;
+  &.show {
+    display: block;
+  }   
+}
