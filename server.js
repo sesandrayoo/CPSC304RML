@@ -56,7 +56,9 @@ app.post('/auth', (request, response) => {
     let useridQry = `SELECT userID FROM user WHERE userName = '${username}' AND userPassword = '${password}';`;
     let userid;
     db.query(useridQry, (err, results) => {
-      userid = results[0].userID;
+      if (results[0] !== undefined) {
+        userid = results[0].userID;
+      }
     });
     if (username && password) {
         connection.query(`SELECT * FROM user WHERE userName = ? AND userPassword = ?`, [username, password], 
