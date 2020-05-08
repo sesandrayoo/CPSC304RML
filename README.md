@@ -1,3 +1,6 @@
+## Disclaimer (May 7 2020)
+The development of this project was done to fulfill a set of requirements outlined by a class criteria, and thus the standards of development that should normally be in place were NOT followed. This was a very 'hacky' job so to speak and no design or implementation standards were established during the making of this project.
+
 # RateMyLandlord
 UBC CPSC 304 Final Project WT2 2019/20
 
