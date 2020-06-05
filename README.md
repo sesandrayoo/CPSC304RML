@@ -1,5 +1,7 @@
-## Disclaimer (May 7 2020)
-The development of this project was done to fulfill a set of requirements outlined by a class criteria, and thus the standards of development that should normally be in place were NOT followed. This was a very 'hacky' job so to speak and no design or implementation standards were established during the making of this project.
+## Disclaimer (Jun 5 2020)
+The development of this project was designed to fulfill a set of requirements outlined by a class criterion, and so we acknowledge that it is not the best solution for an actual scalable app. This was a very 'hacky' job so to speak and no design or implementation standards were established during the making of this project.
+
+Collaborators: Marshall Burton & Yuxiang Huang
 
 # RateMyLandlord
 UBC CPSC 304 Final Project WT2 2019/20
